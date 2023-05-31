@@ -7,7 +7,7 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug unit tests in library 'new-ballot-verifier-lib'",
+            "name": "Debug unit tests in library 'ui-essentials'",
             "cargo": {
                 "args": [
                     "test",
