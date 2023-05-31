@@ -28,7 +28,7 @@
 
         # resulting packages of the flake
         in rec {
-          packages.ui-essentials = nixpkgs.mkYarnPackage {
+          packages.ui-essentials = pkgs.mkYarnPackage {
             inherit pname;
             inherit version;
             packageJSON = ./package.json;
