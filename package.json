@@ -1,6 +1,6 @@
 {
-  "name": "ui-essentioals",
-  "description": "React Typescript library template, with Babel, Webpack and ESLint configuration",
+  "name": "ui-essentials",
+  "description": "React Typescript library, with Babel, Webpack and ESLint configuration",
   "license": "MIT",
   "version": "0.1.0",
   "private": true,
@@ -8,6 +8,10 @@
   "repository": "https://github.com/sequentech/ui-essentials",
   "main": "dist/index.js",
   "dependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
+  },
+  "peerDependencies": {
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
   },
