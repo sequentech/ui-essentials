@@ -14,11 +14,11 @@
   };
 
   # output function of this flake
-  outputs = { self, nixpkgs, flake-utils, flake-compat, mkYarnModules }:
+  outputs = { self, nixpkgs, flake-utils, flake-compat }:
     flake-utils.lib.eachDefaultSystem (
       system:
         let 
-          overlays = [ () ];
+          overlays = [];
           # pkgs is just the nix packages
           pkgs = import nixpkgs {
             inherit system overlays;
@@ -28,12 +28,13 @@
 
         # resulting packages of the flake
         in rec {
-          packages.ui-essentials = mkYarnModules {
+          packages.ui-essentials = nixpkgs.mkYarnPackage {
             inherit pname;
             inherit version;
             packageJSON = ./package.json;
             yarnLock = ./yarn.lock;
             yarnNix = ./yarn.nix;
+            src = ./.;
           };
           /*packages.ui-essentials = buildRustPackageWithCargo {
             pname = "ui-essentials";
@@ -65,9 +66,7 @@
           # configure the dev shell
           devShell = (
             pkgs.mkShell.override { stdenv = pkgs.clangStdenv; }
-          ) { 
-            nativeBuildInputs = 
-              defaultPackage.nativeBuildInputs; 
+          ) {
             buildInputs = 
               [ pkgs.bash pkgs.reuse pkgs.cargo-deny pkgs.ack pkgs.htop pkgs.yarn2nix ]; 
           };
