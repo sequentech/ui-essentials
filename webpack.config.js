@@ -22,6 +22,10 @@ module.exports = function (env, argv) {
                     exclude: /node_modules/,
                     use: ["babel-loader", "ts-loader"],
                 },
+                {
+                    type: 'asset',
+                    test: /\.(png|jpe?g|gif|ico)$/i,
+                }
             ],
         },
         externals: {
