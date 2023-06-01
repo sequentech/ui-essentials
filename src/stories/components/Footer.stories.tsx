@@ -4,7 +4,6 @@
 import React from "react"
 import {ComponentStory, ComponentMeta} from "@storybook/react"
 import {Footer} from "../../components/Footer"
-import {LanguageSetter} from "../../components/LanguageSetter"
 import {withRouter} from "storybook-addon-react-router-v6"
 import {theme} from "../../services/theme"
 
@@ -37,10 +36,6 @@ export default {
                 disable: true,
             },
         },
-        language: {
-            options: [ "en", "es"],
-            control: { type: 'radio' },
-        }
     },
 } as ComponentMeta<typeof Footer>
 
@@ -54,9 +49,7 @@ const Template: ComponentStory<React.FC<FooterProps & TemplateProps>> = ({
     backgroundColor,
     language,
     ...args
-}) => <LanguageSetter language={language}>
-    <Footer {...args} style={{backgroundColor: backgroundColor}} />
-</LanguageSetter>
+}) => <Footer {...args} style={{backgroundColor: backgroundColor}} />
 
 export const Primary = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args

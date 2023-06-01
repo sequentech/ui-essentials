@@ -11,7 +11,7 @@ import Paper, {PaperProps} from "@mui/material/Paper"
 import Box from "@mui/material/Box"
 import {useTranslation} from "react-i18next"
 import {PageBanner} from "./PageBanner"
-import { PageLimit } from "../components/PageLimit"
+import {PageLimit} from "../components/PageLimit"
 
 const StyledPaper = styled(Paper)(
     ({theme}) => `

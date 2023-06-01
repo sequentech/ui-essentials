@@ -15,11 +15,13 @@ interface ButtonProps {
     isactive?: string
 }
 
-const StyledButton = styled(Button)<ButtonProps>(({ isactive }) => `
+const StyledButton = styled(Button)<ButtonProps>(
+    ({isactive}) => `
     gap: 10px;
     color: black;
-    background-color: ${"true" === isactive? '#eee': 'inherit'};
-`)
+    background-color: ${"true" === isactive ? "#eee" : "inherit"};
+`
+)
 
 export const LanguageMenu: React.FC = () => {
     const {i18n} = useTranslation("translations")

@@ -9,13 +9,18 @@ module.exports = {
         "@storybook/addon-interactions",
         "@storybook/preset-create-react-app",
         "storybook-addon-react-router-v6",
+        "@storybook/addon-mdx-gfm",
     ],
-    framework: "@storybook/react",
-    core: {
-        builder: "@storybook/builder-webpack5",
+    framework: {
+        name: "@storybook/react-webpack5",
+        options: {},
     },
     features: {
         interactionsDebugger: true, // 👈 Enable playback controls
     },
+
     port: 9009,
+    docs: {
+        autodocs: true,
+    },
 }

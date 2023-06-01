@@ -1,48 +1,51 @@
 {
-    "env": {
-        "browser": true,
-        "webextensions": true,
-        "jquery": true,
-        "es2021": true
+  "env": {
+    "browser": true,
+    "webextensions": true,
+    "jquery": true,
+    "es2021": true
+  },
+  "ignorePatterns": [
+    "dist/*",
+    "node_modules/*",
+    "jest.config.js",
+    "webpack.config.js"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "react-app",
+    "react-app/jest",
+    "plugin:storybook/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "ignorePatterns": [
-      "dist/*",
-      "node_modules/*",
-      "jest.config.js",
-      "webpack.config.js"
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "prettier"
+  ],
+  "rules": {
+    "@typescript-eslint/ban-ts-comment": "off",
+    "prettier/prettier": [
+      "error"
     ],
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "react-app",
-        "react-app/jest"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-      "@typescript-eslint",
-      "react",
-      "prettier"
-    ],
-    "rules": {
-      "@typescript-eslint/ban-ts-comment": "off",
-      "prettier/prettier": ["error"],
-      "react/prop-types": "off"
-    },
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
+    "react/prop-types": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.stories.*"
+      ],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
       }
-    ]
+    }
+  ]
 }

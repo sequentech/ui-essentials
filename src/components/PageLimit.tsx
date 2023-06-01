@@ -3,16 +3,16 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import React from "react"
 import {Breakpoint, styled} from "@mui/material/styles"
-import Container, { ContainerProps } from "@mui/material/Container"
+import Container, {ContainerProps} from "@mui/material/Container"
 
 const CustomContainer = styled(Container)`
     padding: 0px 8px !important;
 `
 
-type PageLimitProps = ContainerProps & { maxWidth?: Breakpoint }
+type PageLimitProps = ContainerProps & {maxWidth?: Breakpoint}
 
-export const PageLimit: React.FC<PageLimitProps> = 
-    ({children, maxWidth, ...props}) =>
+export const PageLimit: React.FC<PageLimitProps> = ({children, maxWidth, ...props}) => (
     <CustomContainer maxWidth={maxWidth || "sm"} {...props}>
         {children}
     </CustomContainer>
+)

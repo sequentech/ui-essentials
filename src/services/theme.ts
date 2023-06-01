@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import {Color, createTheme} from "@mui/material"
 import {LinkProps} from "@mui/material/Link"
-import {LinkBehavior} from "../components/LinkBehavior"
+//import {LinkBehavior} from "../components/LinkBehavior"
 import {grey} from "@mui/material/colors"
 import {Theme as MUITheme} from "@mui/material"
 
@@ -39,23 +39,23 @@ declare module "@mui/material/Button" {
     }
 }
 
-declare module '@mui/material/styles' {
+declare module "@mui/material/styles" {
     export interface PaletteOptions {
         customGreen: {
             light: string
             dark: string
-        },
-        lightBackground: string,
+        }
+        lightBackground: string
     }
     export interface Palette extends PaletteOptions {}
-  }
+}
 
 export const theme = createTheme({
     components: {
         MuiLink: {
-            defaultProps: {
+            /*defaultProps: {
                 component: LinkBehavior,
-            } as LinkProps,
+            } as LinkProps,*/
             variants: [
                 {
                     props: {variant: "black"},
@@ -68,17 +68,17 @@ export const theme = createTheme({
             ],
             styleOverrides: {
                 root: {
-                    fontSize: "0.875rem",
-                    textDecoration: "none",
+                    "fontSize": "0.875rem",
+                    "textDecoration": "none",
                     "&:hover": {
                         textDecoration: "underline",
-                    }
+                    },
                 },
-            }
+            },
         },
         MuiButtonBase: {
             defaultProps: {
-                LinkComponent: LinkBehavior,
+                //LinkComponent: LinkBehavior,
             },
         },
         MuiButton: {
@@ -86,7 +86,7 @@ export const theme = createTheme({
                 root: {
                     textTransform: "unset",
                 },
-            }
+            },
         },
         MuiMenu: {
             defaultProps: {
@@ -117,11 +117,11 @@ export const theme = createTheme({
                 {
                     props: {variant: "responsive"},
                     style: {
-                        "gap": "20px",
-                        "display": "flex",
-                        "flexDirection": "column",
-                        "alignItems": "center",
-                        "borderRadius": "unset",
+                        gap: "20px",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        borderRadius: "unset",
                     },
                 },
                 {
@@ -171,14 +171,14 @@ export const theme = createTheme({
         h4: {
             paddingTop: "32px",
             paddingBottom: "16px",
-            textAlign: "center"
-        }
+            textAlign: "center",
+        },
     },
     palette: {
         customGreen: {
             light: "#cff0dc",
-            dark: "#0eb048"
+            dark: "#0eb048",
         },
-        lightBackground: '#F7F9FE',
-    }
+        lightBackground: "#F7F9FE",
+    },
 })

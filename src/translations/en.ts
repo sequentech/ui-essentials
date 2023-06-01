@@ -32,7 +32,7 @@ const englishTranslation = {
             ballotChoicesDescription: "And your ballot choices are:",
             helpAndFaq: "Help & FAQ",
             backButton: "Back",
-            markedInvalid: "Ballot explicitly marked invalid"
+            markedInvalid: "Ballot explicitly marked invalid",
         },
         poweredBy: "Powered by",
         errors: {
@@ -40,17 +40,20 @@ const englishTranslation = {
                 notEnoughChoices: "Not enough choices to decode",
                 writeInChoiceOutOfRange: "Write-in choice out of range: {{index}}",
                 writeInNotEndInZero: "Write in doesn't end on 0",
-                bytesToUtf8Conversion: "Error converting write-in from bytes to UTF-8 string: {{errorMessage}}",
-                ballotTooLarge: "Ballot larger than expected"
+                bytesToUtf8Conversion:
+                    "Error converting write-in from bytes to UTF-8 string: {{errorMessage}}",
+                ballotTooLarge: "Ballot larger than expected",
             },
             implicit: {
-                selectedMax: "Number of selected choices {{numSelected}} is more than the maximum {{max}}",
-                selectedMin: "Number of selected choices {{numSelected}} is less than the minimum {{min}}"
+                selectedMax:
+                    "Number of selected choices {{numSelected}} is more than the maximum {{max}}",
+                selectedMin:
+                    "Number of selected choices {{numSelected}} is less than the minimum {{min}}",
             },
             explicit: {
-                notAllowed: "Ballot marked explicitly invalid but question doesn't allow it"
-            }
-        }
+                notAllowed: "Ballot marked explicitly invalid but question doesn't allow it",
+            },
+        },
     },
 }
 

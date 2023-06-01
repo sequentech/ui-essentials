@@ -1,3 +1,7 @@
 import React from "react"
 export {default as useTemplate} from "./useTemplate"
 export {MyComponent} from "./MyComponent"
+export {theme} from "./services/theme"
+export {PageBanner} from "./components/PageBanner"
+export {PageLimit} from "./components/PageLimit"
+export {Footer} from "./components/Footer"

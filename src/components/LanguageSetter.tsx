@@ -4,20 +4,16 @@
 import React, {PropsWithChildren, useEffect} from "react"
 import {useTranslation} from "react-i18next"
 
-
 interface Props {
     language: string
 }
 
-export const LanguageSetter: React.FC<PropsWithChildren<Props>> = 
-    ({children, language}) => {
-        const {i18n} = useTranslation("translations")
+export const LanguageSetter: React.FC<PropsWithChildren<Props>> = ({children, language}) => {
+    const {i18n} = useTranslation("translations")
 
-        useEffect(() => {
-            i18n.changeLanguage(language)
-        }, [language])
-        
-        return <>
-            {children}
-        </>
-    }
+    useEffect(() => {
+        i18n.changeLanguage(language)
+    }, [language])
+
+    return <>{children}</>
+}
