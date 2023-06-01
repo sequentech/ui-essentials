@@ -41,13 +41,11 @@ export default {
 
 interface TemplateProps {
     backgroundColor?: string
-    language: "en" | "es"
 }
 type FooterProps = React.ComponentProps<typeof Footer>
 
 const Template: ComponentStory<React.FC<FooterProps & TemplateProps>> = ({
     backgroundColor,
-    language,
     ...args
 }) => <Footer {...args} style={{backgroundColor: backgroundColor}} />
 
@@ -55,6 +53,5 @@ export const Primary = Template.bind({})
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
     label: "Footer",
-    language: "en",
     backgroundColor: theme.palette.grey[300],
 } as any
