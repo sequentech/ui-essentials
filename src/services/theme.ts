@@ -111,8 +111,8 @@ export const theme = createTheme({
                     },
                     "&:focus": {
                         border: `2px solid ${palette.brandSuccess}`,
-                        color: palette.brandColor,
-                        backgroundColor: "white",
+                        color: "white",
+                        backgroundColor: palette.brandColor,
                     },
                     "&.Mui-disabled": {
                         background: "rgba(15, 5, 76, 0.4)",
