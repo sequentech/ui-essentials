@@ -35,7 +35,7 @@ declare module "@mui/material/Card" {
 
 declare module "@mui/material/Button" {
     interface ButtonPropsVariantOverrides {
-        raised: true
+        action: true
     }
 }
 
@@ -121,6 +121,36 @@ export const theme = createTheme({
                     },
                 },
             },
+            variants: [
+                {
+                    props: {variant: "action"},
+                    style: {
+                        "backgroundColor": palette.brandSuccess,
+                        "border": `1px solid ${palette.brandColor}`,
+                        "color": palette.brandColor,
+                        "&:hover": {
+                            backgroundColor: palette.brandSuccess,
+                            border: `1px solid ${palette.brandColor}`,
+                            color: palette.brandColor,
+                            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                        },
+                        "&:active": {
+                            backgroundColor: palette.brandColor,
+                            border: `1px solid ${palette.brandSuccess}`,
+                            color: palette.brandSuccess,
+                        },
+                        "&:focus": {
+                            border: `2px solid ${palette.brandColor}`,
+                            backgroundColor: palette.brandSuccess,
+                        },
+                        "&.Mui-disabled": {
+                            background: "rgba(67, 227, 161, 0.4)",
+                            border: "1px solid rgba(15, 5, 76, 0.4)",
+                            color: palette.brandColor,
+                        },
+                    },
+                },
+            ],
         },
         MuiMenu: {
             defaultProps: {

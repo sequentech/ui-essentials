@@ -54,3 +54,15 @@ DefaultButton.parameters = {
         focus: [".focus"],
     },
 }
+
+export const ActionButton = Template.bind({})
+ActionButton.parameters = {
+    pseudo: {
+        hover: [".hover"],
+        active: [".active"],
+        focus: [".focus"],
+    },
+}
+ActionButton.args = {
+    variant: "action",
+}
