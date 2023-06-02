@@ -6,6 +6,8 @@ import {ComponentStory, ComponentMeta} from "@storybook/react"
 import Button from "@mui/material/Button"
 import {styled} from "@mui/material/styles"
 import Box from "@mui/material/Box"
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import {faPrint} from "@fortawesome/free-solid-svg-icons"
 
 const VerticalBox = styled(Box)`
     display: flex;
@@ -29,18 +31,23 @@ export default {
 const Template: ComponentStory<typeof Button> = (args) => (
     <VerticalBox>
         <Button className="normal" {...args}>
+            <FontAwesomeIcon icon={faPrint} size="md" />
             Label
         </Button>
         <Button disabled {...args}>
+            <FontAwesomeIcon icon={faPrint} size="md" />
             Label
         </Button>
         <Button className="hover" {...args}>
+            <FontAwesomeIcon icon={faPrint} size="md" />
             Label
         </Button>
         <Button className="active" {...args}>
+            <FontAwesomeIcon icon={faPrint} size="md" />
             Label
         </Button>
         <Button className="focus" {...args}>
+            <FontAwesomeIcon icon={faPrint} size="md" />
             Label
         </Button>
     </VerticalBox>

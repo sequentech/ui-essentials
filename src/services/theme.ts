@@ -101,6 +101,11 @@ export const theme = createTheme({
         MuiButton: {
             styleOverrides: {
                 root: {
+                    "padding": "6px 12px",
+                    "display": "flex",
+                    "flexDirection": "row",
+                    "gap": "4px",
+                    "fontSize": "16px",
                     "textTransform": "unset",
                     "backgroundColor": palette.brandColor,
                     "border": `1px solid ${palette.brandColor}`,
