@@ -10,6 +10,7 @@ module.exports = {
         "@storybook/preset-create-react-app",
         "storybook-addon-react-router-v6",
         "@storybook/addon-mdx-gfm",
+        "storybook-addon-pseudo-states",
     ],
     framework: {
         name: "@storybook/react-webpack5",

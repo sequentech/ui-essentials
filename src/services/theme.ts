@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import {Color, createTheme} from "@mui/material"
 import {LinkProps} from "@mui/material/Link"
-//import {LinkBehavior} from "../components/LinkBehavior"
+import {LinkBehavior} from "../components/LinkBehavior"
 import {grey} from "@mui/material/colors"
 import {Theme as MUITheme} from "@mui/material"
 
@@ -50,12 +50,22 @@ declare module "@mui/material/styles" {
     export interface Palette extends PaletteOptions {}
 }
 
+const palette = {
+    customGreen: {
+        light: "#cff0dc",
+        dark: "#0eb048",
+    },
+    lightBackground: "#F7F9FE",
+    brandColor: "#0F054C",
+    brandSuccess: "#43E3A1",
+}
+
 export const theme = createTheme({
     components: {
         MuiLink: {
-            /*defaultProps: {
+            defaultProps: {
                 component: LinkBehavior,
-            } as LinkProps,*/
+            } as LinkProps,
             variants: [
                 {
                     props: {variant: "black"},
@@ -78,13 +88,37 @@ export const theme = createTheme({
         },
         MuiButtonBase: {
             defaultProps: {
-                //LinkComponent: LinkBehavior,
+                LinkComponent: LinkBehavior,
             },
         },
         MuiButton: {
             styleOverrides: {
                 root: {
-                    textTransform: "unset",
+                    "textTransform": "unset",
+                    "backgroundColor": palette.brandColor,
+                    "border": `1px solid ${palette.brandColor}`,
+                    "color": "white",
+                    "minWidth": "200px",
+                    "minHeight": "44px",
+                    "&:hover": {
+                        backgroundColor: palette.brandColor,
+                        color: "white",
+                        boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                    },
+                    "&:active": {
+                        color: palette.brandColor,
+                        backgroundColor: "white",
+                    },
+                    "&:focus": {
+                        border: `2px solid ${palette.brandSuccess}`,
+                        color: palette.brandColor,
+                        backgroundColor: "white",
+                    },
+                    "&.Mui-disabled": {
+                        background: "rgba(15, 5, 76, 0.4)",
+                        border: "1px solid rgba(255, 255, 255, 0.4)",
+                        color: "white",
+                    },
                 },
             },
         },
@@ -174,11 +208,5 @@ export const theme = createTheme({
             textAlign: "center",
         },
     },
-    palette: {
-        customGreen: {
-            light: "#cff0dc",
-            dark: "#0eb048",
-        },
-        lightBackground: "#F7F9FE",
-    },
+    palette,
 })

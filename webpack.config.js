@@ -23,9 +23,9 @@ module.exports = function (env, argv) {
                     use: ["babel-loader", "ts-loader"],
                 },
                 {
-                    type: 'asset',
+                    type: "asset",
                     test: /\.(png|jpe?g|gif|ico)$/i,
-                }
+                },
             ],
         },
         externals: {
