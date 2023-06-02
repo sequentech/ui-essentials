@@ -10,7 +10,7 @@ import Box from "@mui/material/Box"
 const VerticalBox = styled(Box)`
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 20px;
     max-width: 210px;
     padding: 4px;
 `
@@ -46,6 +46,18 @@ const Template: ComponentStory<typeof Button> = (args) => (
     </VerticalBox>
 )
 
+export const SecondaryButton = Template.bind({})
+SecondaryButton.parameters = {
+    pseudo: {
+        hover: [".hover"],
+        active: [".active"],
+        focus: [".focus"],
+    },
+}
+SecondaryButton.args = {
+    variant: "secondary",
+}
+
 export const DefaultButton = Template.bind({})
 DefaultButton.parameters = {
     pseudo: {
@@ -65,4 +77,28 @@ ActionButton.parameters = {
 }
 ActionButton.args = {
     variant: "action",
+}
+
+export const WarningButton = Template.bind({})
+WarningButton.parameters = {
+    pseudo: {
+        hover: [".hover"],
+        active: [".active"],
+        focus: [".focus"],
+    },
+}
+WarningButton.args = {
+    variant: "warning",
+}
+
+export const WarningPopupButton = Template.bind({})
+WarningPopupButton.parameters = {
+    pseudo: {
+        hover: [".hover"],
+        active: [".active"],
+        focus: [".focus"],
+    },
+}
+WarningPopupButton.args = {
+    variant: "warningPopup",
 }

@@ -35,7 +35,10 @@ declare module "@mui/material/Card" {
 
 declare module "@mui/material/Button" {
     interface ButtonPropsVariantOverrides {
+        secondary: true
         action: true
+        warning: true
+        warningPopup: true
     }
 }
 
@@ -46,6 +49,9 @@ declare module "@mui/material/styles" {
             dark: string
         }
         lightBackground: string
+        brandColor: string
+        brandSuccess: string
+        errorColor: string
     }
     export interface Palette extends PaletteOptions {}
 }
@@ -58,6 +64,7 @@ const palette = {
     lightBackground: "#F7F9FE",
     brandColor: "#0F054C",
     brandSuccess: "#43E3A1",
+    errorColor: "#EF4444",
 }
 
 export const theme = createTheme({
@@ -123,6 +130,35 @@ export const theme = createTheme({
             },
             variants: [
                 {
+                    props: {variant: "secondary"},
+                    style: {
+                        "backgroundColor": "white",
+                        "border": `1px solid ${palette.brandColor}`,
+                        "color": palette.brandColor,
+                        "&:hover": {
+                            backgroundColor: "white",
+                            border: `1px solid ${palette.brandColor}`,
+                            color: palette.brandColor,
+                            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                        },
+                        "&:active": {
+                            backgroundColor: palette.brandColor,
+                            border: `1px solid ${palette.brandColor}`,
+                            color: "white",
+                        },
+                        "&:focus": {
+                            border: `2px solid ${palette.brandSuccess}`,
+                            backgroundColor: "white",
+                            color: palette.brandColor,
+                        },
+                        "&.Mui-disabled": {
+                            background: "rgba(255, 255, 255, 0.4)",
+                            border: "1px solid rgba(15, 5, 76, 0.4)",
+                            color: palette.brandColor,
+                        },
+                    },
+                },
+                {
                     props: {variant: "action"},
                     style: {
                         "backgroundColor": palette.brandSuccess,
@@ -147,6 +183,64 @@ export const theme = createTheme({
                             background: "rgba(67, 227, 161, 0.4)",
                             border: "1px solid rgba(15, 5, 76, 0.4)",
                             color: palette.brandColor,
+                        },
+                    },
+                },
+                {
+                    props: {variant: "warning"},
+                    style: {
+                        "backgroundColor": "white",
+                        "border": `1px solid ${palette.errorColor}`,
+                        "color": palette.errorColor,
+                        "&:hover": {
+                            backgroundColor: "white",
+                            border: `1px solid ${palette.errorColor}`,
+                            color: palette.errorColor,
+                            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                        },
+                        "&:active": {
+                            backgroundColor: palette.errorColor,
+                            border: `1px solid ${palette.errorColor}`,
+                            color: "white",
+                        },
+                        "&:focus": {
+                            border: `2px solid ${palette.errorColor}`,
+                            backgroundColor: "white",
+                            color: palette.errorColor,
+                        },
+                        "&.Mui-disabled": {
+                            background: "rgba(255, 255, 255, 0.4)",
+                            border: "1px solid rgba(239, 68, 68, 0.4)",
+                            color: palette.errorColor,
+                        },
+                    },
+                },
+                {
+                    props: {variant: "warningPopup"},
+                    style: {
+                        "backgroundColor": palette.errorColor,
+                        "border": `1px solid ${palette.errorColor}`,
+                        "color": "white",
+                        "&:hover": {
+                            backgroundColor: palette.errorColor,
+                            border: `1px solid ${palette.errorColor}`,
+                            color: "white",
+                            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                        },
+                        "&:active": {
+                            backgroundColor: "white",
+                            border: `1px solid ${palette.errorColor}`,
+                            color: palette.errorColor,
+                        },
+                        "&:focus": {
+                            border: `2px solid ${palette.brandColor}`,
+                            backgroundColor: palette.errorColor,
+                            color: "white",
+                        },
+                        "&.Mui-disabled": {
+                            background: "rgba(239, 68, 68, 0.4)",
+                            border: "1px solid rgba(239, 68, 68, 0.4)",
+                            color: "white",
                         },
                     },
                 },
