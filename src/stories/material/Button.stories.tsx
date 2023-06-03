@@ -31,23 +31,23 @@ export default {
 const Template: ComponentStory<typeof Button> = (args) => (
     <VerticalBox>
         <Button className="normal" {...args}>
-            <FontAwesomeIcon icon={faPrint} size="md" />
+            <FontAwesomeIcon icon={faPrint} size="sm" />
             Label
         </Button>
         <Button disabled {...args}>
-            <FontAwesomeIcon icon={faPrint} size="md" />
+            <FontAwesomeIcon icon={faPrint} size="sm" />
             Label
         </Button>
         <Button className="hover" {...args}>
-            <FontAwesomeIcon icon={faPrint} size="md" />
+            <FontAwesomeIcon icon={faPrint} size="sm" />
             Label
         </Button>
         <Button className="active" {...args}>
-            <FontAwesomeIcon icon={faPrint} size="md" />
+            <FontAwesomeIcon icon={faPrint} size="sm" />
             Label
         </Button>
         <Button className="focus" {...args}>
-            <FontAwesomeIcon icon={faPrint} size="md" />
+            <FontAwesomeIcon icon={faPrint} size="sm" />
             Label
         </Button>
     </VerticalBox>
@@ -86,6 +86,18 @@ ActionButton.args = {
     variant: "action",
 }
 
+export const CancelButton = Template.bind({})
+CancelButton.parameters = {
+    pseudo: {
+        hover: [".hover"],
+        active: [".active"],
+        focus: [".focus"],
+    },
+}
+CancelButton.args = {
+    variant: "cancel",
+}
+
 export const WarningButton = Template.bind({})
 WarningButton.parameters = {
     pseudo: {
@@ -98,14 +110,14 @@ WarningButton.args = {
     variant: "warning",
 }
 
-export const WarningPopupButton = Template.bind({})
-WarningPopupButton.parameters = {
+export const SolidWarningButton = Template.bind({})
+SolidWarningButton.parameters = {
     pseudo: {
         hover: [".hover"],
         active: [".active"],
         focus: [".focus"],
     },
 }
-WarningPopupButton.args = {
-    variant: "warningPopup",
+SolidWarningButton.args = {
+    variant: "solidWarning",
 }

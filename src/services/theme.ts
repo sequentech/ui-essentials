@@ -38,33 +38,61 @@ declare module "@mui/material/Button" {
         secondary: true
         action: true
         warning: true
-        warningPopup: true
+        cancel: true
+        solidWarning: true
     }
 }
 
 declare module "@mui/material/styles" {
+    export interface CustomColor {
+        light: string
+        dark: string
+    }
     export interface PaletteOptions {
-        customGreen: {
-            light: string
-            dark: string
-        }
         lightBackground: string
         brandColor: string
         brandSuccess: string
         errorColor: string
+        red: CustomColor
+        green: CustomColor
+        customGreen: CustomColor
+        yellow: CustomColor
+        blue: CustomColor
+        white: string
+        greyColor: string
+        black: string
     }
     export interface Palette extends PaletteOptions {}
 }
 
 const palette = {
-    customGreen: {
-        light: "#cff0dc",
-        dark: "#0eb048",
-    },
     lightBackground: "#F7F9FE",
     brandColor: "#0F054C",
     brandSuccess: "#43E3A1",
     errorColor: "#EF4444",
+    red: {
+        light: "#FECACA",
+        dark: "#991B1B",
+    },
+    green: {
+        light: "#ECFDF5",
+        dark: "#064E3B",
+    },
+    customGreen: {
+        light: "#CFF0DC",
+        dark: "#0EB048",
+    },
+    yellow: {
+        light: "#FFF7D9",
+        dark: "#957400",
+    },
+    blue: {
+        light: "#CCE5FF",
+        dark: "#292F99",
+    },
+    white: "white",
+    greyColor: "#E7EAEE",
+    black: "black",
 }
 
 export const theme = createTheme({
@@ -109,27 +137,27 @@ export const theme = createTheme({
                     "textTransform": "unset",
                     "backgroundColor": palette.brandColor,
                     "border": `1px solid ${palette.brandColor}`,
-                    "color": "white",
+                    "color": palette.white,
                     "minWidth": "200px",
                     "minHeight": "44px",
                     "&:hover": {
                         backgroundColor: palette.brandColor,
-                        color: "white",
+                        color: palette.white,
                         boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                     },
                     "&:active": {
                         color: palette.brandColor,
-                        backgroundColor: "white",
+                        backgroundColor: palette.white,
                     },
                     "&:focus": {
                         border: `2px solid ${palette.brandSuccess}`,
-                        color: "white",
+                        color: palette.white,
                         backgroundColor: palette.brandColor,
                     },
                     "&.Mui-disabled": {
                         background: "rgba(15, 5, 76, 0.4)",
                         border: "1px solid rgba(255, 255, 255, 0.4)",
-                        color: "white",
+                        color: palette.white,
                     },
                 },
             },
@@ -137,11 +165,11 @@ export const theme = createTheme({
                 {
                     props: {variant: "secondary"},
                     style: {
-                        "backgroundColor": "white",
+                        "backgroundColor": palette.white,
                         "border": `1px solid ${palette.brandColor}`,
                         "color": palette.brandColor,
                         "&:hover": {
-                            backgroundColor: "white",
+                            backgroundColor: palette.white,
                             border: `1px solid ${palette.brandColor}`,
                             color: palette.brandColor,
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
@@ -149,11 +177,11 @@ export const theme = createTheme({
                         "&:active": {
                             backgroundColor: palette.brandColor,
                             border: `1px solid ${palette.brandColor}`,
-                            color: "white",
+                            color: palette.white,
                         },
                         "&:focus": {
                             border: `2px solid ${palette.brandSuccess}`,
-                            backgroundColor: "white",
+                            backgroundColor: palette.white,
                             color: palette.brandColor,
                         },
                         "&.Mui-disabled": {
@@ -194,11 +222,11 @@ export const theme = createTheme({
                 {
                     props: {variant: "warning"},
                     style: {
-                        "backgroundColor": "white",
+                        "backgroundColor": palette.white,
                         "border": `1px solid ${palette.errorColor}`,
                         "color": palette.errorColor,
                         "&:hover": {
-                            backgroundColor: "white",
+                            backgroundColor: palette.white,
                             border: `1px solid ${palette.errorColor}`,
                             color: palette.errorColor,
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
@@ -206,11 +234,11 @@ export const theme = createTheme({
                         "&:active": {
                             backgroundColor: palette.errorColor,
                             border: `1px solid ${palette.errorColor}`,
-                            color: "white",
+                            color: palette.white,
                         },
                         "&:focus": {
                             border: `2px solid ${palette.errorColor}`,
-                            backgroundColor: "white",
+                            backgroundColor: palette.white,
                             color: palette.errorColor,
                         },
                         "&.Mui-disabled": {
@@ -221,31 +249,60 @@ export const theme = createTheme({
                     },
                 },
                 {
-                    props: {variant: "warningPopup"},
+                    props: {variant: "cancel"},
                     style: {
-                        "backgroundColor": palette.errorColor,
-                        "border": `1px solid ${palette.errorColor}`,
-                        "color": "white",
+                        "backgroundColor": palette.greyColor,
+                        "border": `1px solid ${palette.greyColor}`,
+                        "color": palette.black,
                         "&:hover": {
-                            backgroundColor: palette.errorColor,
-                            border: `1px solid ${palette.errorColor}`,
-                            color: "white",
+                            backgroundColor: palette.greyColor,
+                            border: `1px solid ${palette.greyColor}`,
+                            color: palette.black,
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                         },
                         "&:active": {
-                            backgroundColor: "white",
+                            backgroundColor: palette.black,
+                            border: `1px solid ${palette.black}`,
+                            color: palette.greyColor,
+                        },
+                        "&:focus": {
+                            border: `2px solid ${palette.black}`,
+                            backgroundColor: palette.greyColor,
+                            color: palette.black,
+                        },
+                        "&.Mui-disabled": {
+                            background: "rgba(231, 234, 238, 0.4)",
+                            border: "1px solid rgba(231, 234, 238, 0.4)",
+                            color: palette.black,
+                        },
+                    },
+                },
+                {
+                    props: {variant: "solidWarning"},
+                    style: {
+                        "backgroundColor": palette.errorColor,
+                        "border": `1px solid ${palette.errorColor}`,
+                        "color": palette.white,
+                        "&:hover": {
+                            backgroundColor: palette.errorColor,
+                            border: `1px solid ${palette.errorColor}`,
+                            color: palette.white,
+                            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                        },
+                        "&:active": {
+                            backgroundColor: palette.white,
                             border: `1px solid ${palette.errorColor}`,
                             color: palette.errorColor,
                         },
                         "&:focus": {
                             border: `2px solid ${palette.brandColor}`,
                             backgroundColor: palette.errorColor,
-                            color: "white",
+                            color: palette.white,
                         },
                         "&.Mui-disabled": {
                             background: "rgba(239, 68, 68, 0.4)",
                             border: "1px solid rgba(239, 68, 68, 0.4)",
-                            color: "white",
+                            color: palette.white,
                         },
                     },
                 },
