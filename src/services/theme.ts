@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2022 Félix Robles <felix@sequentech.io>
 //
 // SPDX-License-Identifier: AGPL-3.0-only
-import {Color, createTheme} from "@mui/material"
+import {ThemeOptions, createTheme} from "@mui/material"
 import {LinkProps} from "@mui/material/Link"
 import {LinkBehavior} from "../components/LinkBehavior"
 import {grey} from "@mui/material/colors"
@@ -40,6 +40,7 @@ declare module "@mui/material/Button" {
         warning: true
         cancel: true
         solidWarning: true
+        actionbar: true
     }
 }
 
@@ -95,7 +96,7 @@ const palette = {
     black: "black",
 }
 
-export const theme = createTheme({
+export const themeOptions: ThemeOptions = {
     components: {
         MuiLink: {
             defaultProps: {
@@ -211,6 +212,7 @@ export const theme = createTheme({
                         "&:focus": {
                             border: `2px solid ${palette.brandColor}`,
                             backgroundColor: palette.brandSuccess,
+                            color: palette.brandColor,
                         },
                         "&.Mui-disabled": {
                             background: "rgba(67, 227, 161, 0.4)",
@@ -306,6 +308,37 @@ export const theme = createTheme({
                         },
                     },
                 },
+                {
+                    props: {variant: "actionbar"},
+                    style: {
+                        "minWidth": "unset",
+                        "minHeight": "unset",
+                        "backgroundColor": palette.white,
+                        "border": `1px solid transparent`,
+                        "color": palette.brandColor,
+                        "&:hover": {
+                            backgroundColor: palette.white,
+                            border: `1px solid ${palette.brandColor}`,
+                            color: palette.brandColor,
+                            boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                        },
+                        "&:active": {
+                            backgroundColor: palette.brandColor,
+                            border: `1px solid ${palette.brandColor}`,
+                            color: palette.white,
+                        },
+                        "&:focus": {
+                            border: `2px solid ${palette.brandSuccess}`,
+                            backgroundColor: palette.white,
+                            color: palette.brandColor,
+                        },
+                        "&.Mui-disabled": {
+                            background: "rgba(255, 255, 255, 0.4)",
+                            border: "1px solid rgba(15, 5, 76, 0.4)",
+                            color: palette.brandColor,
+                        },
+                    },
+                },
             ],
         },
         MuiMenu: {
@@ -395,4 +428,6 @@ export const theme = createTheme({
         },
     },
     palette,
-})
+}
+
+export const theme = createTheme(themeOptions)

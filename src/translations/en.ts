@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 const englishTranslation = {
     translations: {
+        language: "English",
         welcome: "Hello <br/> <strong>World</strong>",
         homeScreen: {
             title: "Sequent Ballot Verifier",

@@ -121,3 +121,15 @@ SolidWarningButton.parameters = {
 SolidWarningButton.args = {
     variant: "solidWarning",
 }
+
+export const ActionbarButton = Template.bind({})
+ActionbarButton.parameters = {
+    pseudo: {
+        hover: [".hover"],
+        active: [".active"],
+        focus: [".focus"],
+    },
+}
+ActionbarButton.args = {
+    variant: "actionbar",
+}

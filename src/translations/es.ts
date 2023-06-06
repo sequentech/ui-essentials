@@ -5,6 +5,7 @@ import {TranslationType} from "./en"
 
 const spanishTranslation: TranslationType = {
     translations: {
+        language: "Español",
         welcome: "Let's start: Import auditable ballot..",
         homeScreen: {
             title: "Verificador de Voto Sequent",

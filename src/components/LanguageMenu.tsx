@@ -7,9 +7,10 @@ import Menu from "@mui/material/Menu"
 import MenuItem from "@mui/material/MenuItem"
 import {useTranslation} from "react-i18next"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faCaretDown} from "@fortawesome/free-solid-svg-icons"
+import {faLanguage, faCaretDown} from "@fortawesome/free-solid-svg-icons"
 import {getLanguages} from "../services/i18n"
 import {styled} from "@mui/material/styles"
+import {Box} from "@mui/material"
 
 interface ButtonProps {
     isactive?: string
@@ -24,7 +25,7 @@ const StyledButton = styled(Button)<ButtonProps>(
 )
 
 export const LanguageMenu: React.FC = () => {
-    const {i18n} = useTranslation("translations")
+    const {t, i18n} = useTranslation("translations")
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -41,9 +42,10 @@ export const LanguageMenu: React.FC = () => {
     const languagesList = getLanguages(i18n)
 
     return (
-        <div>
+        <Box>
             <StyledButton
                 id="lang-button"
+                variant="actionbar"
                 data-testid="lang-button-test"
                 aria-controls={open ? "lang-menu" : undefined}
                 aria-haspopup="true"
@@ -51,7 +53,10 @@ export const LanguageMenu: React.FC = () => {
                 onClick={handleClick}
                 isactive={String(open)}
             >
-                {i18n.resolvedLanguage}
+                <FontAwesomeIcon icon={faLanguage} size="lg" />
+                <Box component="span" sx={{display: {xs: "none", md: "block"}}}>
+                    {t("language")}
+                </Box>
                 <FontAwesomeIcon icon={faCaretDown} size="lg" />
             </StyledButton>
             <Menu
@@ -69,10 +74,10 @@ export const LanguageMenu: React.FC = () => {
                         onClick={() => changeLanguage(language)}
                         key={`menu-language-${language}`}
                     >
-                        {language}
+                        {t("language", {lng: language})}
                     </MenuItem>
                 ))}
             </Menu>
-        </div>
+        </Box>
     )
 }
