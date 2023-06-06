@@ -32,23 +32,23 @@ const Template: ComponentStory<typeof Button> = (args) => (
     <VerticalBox>
         <Button className="normal" {...args}>
             <FontAwesomeIcon icon={faPrint} size="sm" />
-            Label
+            <span>Label</span>
         </Button>
         <Button disabled {...args}>
             <FontAwesomeIcon icon={faPrint} size="sm" />
-            Label
+            <span>Label</span>
         </Button>
         <Button className="hover" {...args}>
             <FontAwesomeIcon icon={faPrint} size="sm" />
-            Label
+            <span>Label</span>
         </Button>
         <Button className="active" {...args}>
             <FontAwesomeIcon icon={faPrint} size="sm" />
-            Label
+            <span>Label</span>
         </Button>
         <Button className="focus" {...args}>
             <FontAwesomeIcon icon={faPrint} size="sm" />
-            Label
+            <span>Label</span>
         </Button>
     </VerticalBox>
 )
