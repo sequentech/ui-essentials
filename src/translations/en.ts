@@ -4,6 +4,7 @@
 const englishTranslation = {
     translations: {
         language: "English",
+        logout: "logout",
         welcome: "Hello <br/> <strong>World</strong>",
         homeScreen: {
             title: "Sequent Ballot Verifier",

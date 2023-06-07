@@ -147,8 +147,8 @@ export const themeOptions: ThemeOptions = {
                         boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                     },
                     "&:active": {
-                        color: palette.brandColor,
-                        backgroundColor: palette.white,
+                        color: `${palette.brandColor} !important`,
+                        backgroundColor: `${palette.white} !important`,
                     },
                     "&:focus": {
                         border: `2px solid ${palette.brandSuccess}`,
@@ -176,9 +176,9 @@ export const themeOptions: ThemeOptions = {
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                         },
                         "&:active": {
-                            backgroundColor: palette.brandColor,
+                            backgroundColor: `${palette.brandColor} !important`,
                             border: `1px solid ${palette.brandColor}`,
-                            color: palette.white,
+                            color: `${palette.white} !important`,
                         },
                         "&:focus": {
                             border: `2px solid ${palette.brandSuccess}`,
@@ -208,9 +208,9 @@ export const themeOptions: ThemeOptions = {
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                         },
                         "&:active": {
-                            backgroundColor: palette.brandColor,
+                            backgroundColor: `${palette.brandColor} !important`,
                             border: `1px solid ${palette.brandSuccess}`,
-                            color: palette.brandSuccess,
+                            color: `${palette.brandSuccess} !important`,
                         },
                         "&:focus": {
                             border: `2px solid ${palette.brandColor}`,
@@ -240,9 +240,9 @@ export const themeOptions: ThemeOptions = {
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                         },
                         "&:active": {
-                            backgroundColor: palette.errorColor,
+                            backgroundColor: `${palette.errorColor} !important`,
                             border: `1px solid ${palette.errorColor}`,
-                            color: palette.white,
+                            color: `${palette.white} !important`,
                         },
                         "&:focus": {
                             border: `2px solid ${palette.errorColor}`,
@@ -272,9 +272,9 @@ export const themeOptions: ThemeOptions = {
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                         },
                         "&:active": {
-                            backgroundColor: palette.black,
+                            backgroundColor: `${palette.black} !important`,
                             border: `1px solid ${palette.black}`,
-                            color: palette.greyColor,
+                            color: `${palette.greyColor} !important`,
                         },
                         "&:focus": {
                             border: `2px solid ${palette.black}`,
@@ -304,9 +304,9 @@ export const themeOptions: ThemeOptions = {
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                         },
                         "&:active": {
-                            backgroundColor: palette.white,
+                            backgroundColor: `${palette.white} !important`,
                             border: `1px solid ${palette.errorColor}`,
-                            color: palette.errorColor,
+                            color: `${palette.errorColor} !important`,
                         },
                         "&:focus": {
                             border: `2px solid ${palette.brandColor}`,
@@ -325,11 +325,11 @@ export const themeOptions: ThemeOptions = {
                     style: {
                         "minWidth": "unset",
                         "minHeight": "unset",
-                        "backgroundColor": palette.white,
+                        "backgroundColor": "transparent",
                         "border": `1px solid transparent`,
                         "color": palette.brandColor,
                         "&:hover": {
-                            "backgroundColor": palette.white,
+                            "backgroundColor": "transparent",
                             "border": `1px solid transparent`,
                             "color": palette.brandColor,
                             "*": {
@@ -338,14 +338,14 @@ export const themeOptions: ThemeOptions = {
                             "boxShadow": "unset",
                         },
                         "&:active": {
-                            backgroundColor: palette.brandColor,
+                            backgroundColor: `${palette.brandColor} !important`,
                             border: `1px solid ${palette.brandColor}`,
-                            color: palette.white,
+                            color: `${palette.white} !important`,
                         },
                         "&:focus": {
                             border: `1px solid ${palette.brandColor}`,
-                            backgroundColor: palette.white,
-                            color: palette.brandColor,
+                            backgroundColor: "transparent",
+                            color: `${palette.brandColor}`,
                         },
                         "&.Mui-disabled": {
                             background: "rgba(255, 255, 255, 0.4)",

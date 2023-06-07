@@ -27,7 +27,7 @@ type Story = StoryObj<typeof Header>
 export const Primary: Story = {
     // More on args: https://storybook.js.org/docs/react/writing-stories/args
     args: {
-        label: "Header",
+        logoutFn: () => {},
     },
     parameters: {
         viewport: {
@@ -39,7 +39,7 @@ export const Primary: Story = {
 export const PrimaryMobile: Story = {
     // More on args: https://storybook.js.org/docs/react/writing-stories/args
     args: {
-        label: "Header",
+        logoutFn: () => {},
     },
     parameters: {
         viewport: {

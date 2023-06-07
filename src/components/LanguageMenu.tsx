@@ -25,7 +25,7 @@ const StyledButton = styled(Button)<ButtonProps>(
 )
 
 export const LanguageMenu: React.FC = () => {
-    const {t, i18n} = useTranslation("translations")
+    const {t, i18n} = useTranslation()
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
