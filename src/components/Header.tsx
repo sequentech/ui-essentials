@@ -7,17 +7,19 @@ import {LanguageMenu} from "./LanguageMenu"
 import {PageBanner} from "./PageBanner"
 import {PageLimit} from "../components/PageLimit"
 import {theme} from "../services/theme"
-import LogoImg from "../../public/Sequent_logo_small.png"
+import LogoImg from "../../public/Sequent_logo.svg"
 import styled from "@emotion/styled"
 import Button from "@mui/material/Button"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons"
 import {Box} from "@mui/material"
 import {useTranslation} from "react-i18next"
+import {Version} from "./Version"
 
 const HeaderWrapper = styled(PageBanner)`
     background-color: ${theme.palette.lightBackground};
-    padding: 36.5px 0;
+    padding: 16px 0;
+    font-size: 16px;
 
     @media (max-width: ${theme.breakpoints.values.lg}px) {
         padding: 9px;
@@ -57,7 +59,8 @@ export const Header: React.FC<HeaderProps> = ({logoutFn}) => (
                 <StyledLink href="//sequentech.io/" target="_blank">
                     <Image src={LogoImg} duration={100} sx={{maxHeight: "100%"}} />
                 </StyledLink>
-                <Box display="flex">
+                <Box display="flex" alignItems="center" sx={{gap: {xs: "11px", lg: "31px"}}}>
+                    <Version version={{main: "7.1.0"}} />
                     <LanguageMenu />
                     {logoutFn ? <LogoutButton logoutFn={logoutFn} /> : null}
                 </Box>

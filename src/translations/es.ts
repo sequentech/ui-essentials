@@ -59,6 +59,9 @@ const spanishTranslation: TranslationType = {
                     "Voto marcado explícitamente como inválido pero la pregunta no lo permite",
             },
         },
+        version: {
+            header: "Versión:",
+        },
     },
 }
 

@@ -49,6 +49,9 @@ declare module "@mui/material/styles" {
         light: string
         dark: string
     }
+    export interface CustomColorLighter extends CustomColor {
+        lighter: string
+    }
     export interface PaletteOptions {
         lightBackground: string
         brandColor: string
@@ -59,8 +62,8 @@ declare module "@mui/material/styles" {
         customGreen: CustomColor
         yellow: CustomColor
         blue: CustomColor
+        customGrey: CustomColorLighter
         white: string
-        greyColor: string
         black: string
     }
     export interface Palette extends PaletteOptions {}
@@ -91,8 +94,12 @@ const palette = {
         light: "#CCE5FF",
         dark: "#292F99",
     },
+    customGrey: {
+        lighter: "#E7EAEE",
+        light: "#757575",
+        dark: "#191D23",
+    },
     white: "white",
-    greyColor: "#E7EAEE",
     black: "black",
 }
 
@@ -262,23 +269,23 @@ export const themeOptions: ThemeOptions = {
                 {
                     props: {variant: "cancel"},
                     style: {
-                        "backgroundColor": palette.greyColor,
-                        "border": `1px solid ${palette.greyColor}`,
+                        "backgroundColor": palette.customGrey.lighter,
+                        "border": `1px solid ${palette.customGrey.lighter}`,
                         "color": palette.black,
                         "&:hover": {
-                            backgroundColor: palette.greyColor,
-                            border: `1px solid ${palette.greyColor}`,
+                            backgroundColor: palette.customGrey.lighter,
+                            border: `1px solid ${palette.customGrey.lighter}`,
                             color: palette.black,
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                         },
                         "&:active": {
                             backgroundColor: `${palette.black} !important`,
                             border: `1px solid ${palette.black}`,
-                            color: `${palette.greyColor} !important`,
+                            color: `${palette.customGrey.lighter} !important`,
                         },
                         "&:focus": {
                             border: `2px solid ${palette.black}`,
-                            backgroundColor: palette.greyColor,
+                            backgroundColor: palette.customGrey.lighter,
                             color: palette.black,
                         },
                         "&.Mui-disabled": {
@@ -323,6 +330,8 @@ export const themeOptions: ThemeOptions = {
                 {
                     props: {variant: "actionbar"},
                     style: {
+                        "padding": "4px",
+                        "fontWeight": "normal",
                         "minWidth": "unset",
                         "minHeight": "unset",
                         "backgroundColor": "transparent",
@@ -416,6 +425,42 @@ export const themeOptions: ThemeOptions = {
                     },
                 },
             ],
+        },
+        MuiDialogTitle: {
+            styleOverrides: {
+                root: {
+                    padding: "5px 10px",
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: "11px",
+                    alignItems: "center",
+                    backgroundColor: palette.lightBackground,
+                    fontSize: "16px",
+                    color: palette.customGrey.dark,
+                },
+            },
+        },
+        MuiDialogContent: {
+            styleOverrides: {
+                root: {
+                    padding: "16px 48px 0 48px !important",
+                },
+            },
+        },
+        MuiDialogActions: {
+            styleOverrides: {
+                root: {
+                    padding: "15px 48px",
+                },
+            },
+        },
+        MuiDialog: {
+            styleOverrides: {
+                paper: {
+                    border: `2px solid ${palette.black}`,
+                    maxWidth: "496px",
+                },
+            },
         },
     },
     typography: {

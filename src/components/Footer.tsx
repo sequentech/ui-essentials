@@ -29,7 +29,7 @@ const SocialWrapper = styled(Box)`
 `
 
 export const Footer: React.FC<PaperProps> = (args) => {
-    const {t} = useTranslation("translations")
+    const {t} = useTranslation()
 
     return (
         <StyledPaper {...args}>

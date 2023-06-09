@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const LanguageSetter: React.FC<PropsWithChildren<Props>> = ({children, language}) => {
-    const {i18n} = useTranslation("translations")
+    const {i18n} = useTranslation()
 
     useEffect(() => {
         i18n.changeLanguage(language)

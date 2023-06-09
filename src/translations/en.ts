@@ -56,6 +56,9 @@ const englishTranslation = {
                 notAllowed: "Ballot marked explicitly invalid but question doesn't allow it",
             },
         },
+        version: {
+            header: "Version:",
+        },
     },
 }
 
