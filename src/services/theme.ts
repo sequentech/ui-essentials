@@ -462,6 +462,24 @@ export const themeOptions: ThemeOptions = {
                 },
             },
         },
+        MuiIconButton: {
+            styleOverrides: {
+                root: {
+                    "padding": 0,
+                    "border": `2px solid transparent`,
+                    "color": palette.black,
+                    "&:hover": {
+                        padding: 0,
+                        filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
+                    },
+                    "&:active": {
+                        color: palette.customGrey.light,
+                        border: `2px solid ${palette.black}`,
+                        backgroundColor: palette.white,
+                    },
+                },
+            },
+        },
     },
     typography: {
         body1: {

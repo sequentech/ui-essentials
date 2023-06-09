@@ -64,7 +64,7 @@ export const Dialog: React.FC<DialogProps> = ({
         <MaterialDialog onClose={closeDialog} open={open} slots={{backdrop: StyledBackdrop}}>
             <DialogTitle>
                 <BlueIcon icon={faExclamationCircle} />
-                <Box component="span" flexGrow={2}>
+                <Box component="span" flexGrow={2} pt="3px">
                     {title}
                 </Box>
                 <IconButton aria-label="close">
