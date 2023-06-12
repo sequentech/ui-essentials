@@ -63,7 +63,7 @@ declare module "@mui/material/styles" {
 }
 
 const palette = {
-    lightBackground: "#F7F9FE",
+    lightBackground: "#F7F9FE", // #F7F9FE
     brandColor: "#0F054C",
     brandSuccess: "#43E3A1",
     errorColor: "#EF4444",
@@ -95,7 +95,8 @@ const palette = {
     customGrey: {
         light: "#E7EAEE",
         main: "#757575",
-        dark: "#191D23",
+        dark: "#64748B",
+        contrastText: "#191D23",
     },
     white: "white",
     black: "black",
@@ -434,7 +435,7 @@ export const themeOptions: ThemeOptions = {
                     alignItems: "center",
                     backgroundColor: palette.lightBackground,
                     fontSize: "16px",
-                    color: palette.customGrey.dark,
+                    color: palette.customGrey.contrastText,
                 },
             },
         },

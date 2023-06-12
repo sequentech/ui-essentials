@@ -3,12 +3,13 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import React from "react"
 import {Meta, StoryObj} from "@storybook/react"
-import {IconButton} from "@mui/material"
+import {IconButton as MuiIconButton} from "@mui/material"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faTimesCircle} from "@fortawesome/free-solid-svg-icons"
 import Box from "@mui/material/Box"
 import {styled} from "@mui/material/styles"
 import {theme} from "../../services/theme"
+import {IconButton} from "../../components/IconButton"
 
 const VerticalBox = styled(Box)`
     display: flex;
@@ -20,26 +21,16 @@ const VerticalBox = styled(Box)`
 
 const IconButtonExample: React.FC = () => (
     <VerticalBox>
-        <IconButton aria-label="close">
-            <FontAwesomeIcon icon={faTimesCircle} />
-        </IconButton>
-        <IconButton aria-label="close" sx={{color: theme.palette.blue?.main}}>
-            <FontAwesomeIcon icon={faTimesCircle} />
-        </IconButton>
-        <IconButton aria-label="close" sx={{color: theme.palette.yellow?.main}}>
-            <FontAwesomeIcon icon={faTimesCircle} />
-        </IconButton>
-        <IconButton aria-label="close" sx={{color: theme.palette.red?.main}}>
-            <FontAwesomeIcon icon={faTimesCircle} />
-        </IconButton>
-        <IconButton aria-label="close" sx={{color: theme.palette.green?.dark}}>
-            <FontAwesomeIcon icon={faTimesCircle} />
-        </IconButton>
+        <IconButton icon={faTimesCircle} />
+        <IconButton icon={faTimesCircle} variant="info" />
+        <IconButton icon={faTimesCircle} variant="warning" />
+        <IconButton icon={faTimesCircle} variant="error" />
+        <IconButton icon={faTimesCircle} variant="success" />
     </VerticalBox>
 )
 
 const meta: Meta<typeof IconButtonExample> = {
-    title: "material/IconButton",
+    title: "components/IconButton",
     component: IconButtonExample,
     parameters: {
         backgrounds: {

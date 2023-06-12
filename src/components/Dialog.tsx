@@ -20,22 +20,7 @@ const StyledBackdrop = styledEmotion(Backdrop)`
 const BlueIcon = styled(FontAwesomeIcon)`
     color: ${({theme}) => theme.palette.brandColor};
 `
-/*
-const CloseIcon = styled(FontAwesomeIcon)`
-    color: ${({theme}) => theme.palette.black};
 
-    &:hover {
-        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-        cursor: pointer;
-    }
-    &:active {
-        color: ${({theme}) => theme.palette.customGrey.light} !important;
-    }
-    &:focus {
-        border: 1px solid black;
-    }
-`
-*/
 const CloseIcon = styled(FontAwesomeIcon)``
 
 export interface DialogProps extends PropsWithChildren {
