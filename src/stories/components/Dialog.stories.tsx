@@ -6,22 +6,23 @@ import {Meta, StoryObj} from "@storybook/react"
 import {Dialog} from "../../components/Dialog"
 import {INITIAL_VIEWPORTS} from "@storybook/addon-viewport"
 import {Button} from "@mui/material"
+import {useTranslation} from "react-i18next"
 
 const DialogExample: React.FC = () => {
+    const {t} = useTranslation()
     const [open, setOpen] = useState(true)
 
     return (
         <>
-            <Button onClick={() => setOpen(true)}>Open Dialog</Button>
+            <Button onClick={() => setOpen(true)}>{t("stories.openDialog")}</Button>
             <Dialog
                 handleClose={() => setOpen(false)}
                 open={open}
-                title="Status"
-                cancel="cancel"
-                ok="ok"
-                variant="warning"
+                title={t("ballotSelectionsScreen.statusModal.title")}
+                ok={t("ballotSelectionsScreen.statusModal.ok")}
+                variant="info"
             >
-                <p>The status panel gives you information about the verifications performed.</p>
+                <p>{t("ballotSelectionsScreen.statusModal.content")}</p>
             </Dialog>
         </>
     )

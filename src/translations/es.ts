@@ -38,6 +38,14 @@ const spanishTranslation: TranslationType = {
             backButton: "Atrás",
             markedInvalid: "Voto explícitamente marcado inválido",
         },
+        ballotSelectionsScreen: {
+            statusModal: {
+                title: "Estado",
+                content:
+                    "El panel de estado te da información sobre las verificaciones realizadas.",
+                ok: "OK",
+            },
+        },
         poweredBy: "Funciona con",
         errors: {
             encoding: {
@@ -61,6 +69,9 @@ const spanishTranslation: TranslationType = {
         },
         version: {
             header: "Versión:",
+        },
+        stories: {
+            openDialog: "Abrir Diálogo",
         },
     },
 }

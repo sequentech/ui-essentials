@@ -36,6 +36,14 @@ const englishTranslation = {
             backButton: "Back",
             markedInvalid: "Ballot explicitly marked invalid",
         },
+        ballotSelectionsScreen: {
+            statusModal: {
+                title: "Status",
+                content:
+                    "The status panel gives you information about the  verifications performed.",
+                ok: "OK",
+            },
+        },
         poweredBy: "Powered by",
         errors: {
             encoding: {
@@ -58,6 +66,9 @@ const englishTranslation = {
         },
         version: {
             header: "Version:",
+        },
+        stories: {
+            openDialog: "Open Dialog",
         },
     },
 }

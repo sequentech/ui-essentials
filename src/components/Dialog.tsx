@@ -42,7 +42,7 @@ export interface DialogProps extends PropsWithChildren {
     handleClose: (value: boolean) => void
     open: boolean
     title: string
-    cancel: string
+    cancel?: string
     ok: string
     variant?: "warning" | "info" | "action"
 }
@@ -73,13 +73,15 @@ export const Dialog: React.FC<DialogProps> = ({
             </DialogTitle>
             <DialogContent>{children}</DialogContent>
             <DialogActions>
-                <Button
-                    variant="cancel"
-                    onClick={closeDialog}
-                    sx={{minWidth: "unset", flexGrow: 2}}
-                >
-                    {cancel}
-                </Button>
+                {cancel ? (
+                    <Button
+                        variant="cancel"
+                        onClick={closeDialog}
+                        sx={{minWidth: "unset", flexGrow: 2}}
+                    >
+                        {cancel}
+                    </Button>
+                ) : undefined}
                 <Button
                     variant={okVariant as any}
                     onClick={clickOk}
