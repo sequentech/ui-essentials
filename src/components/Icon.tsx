@@ -6,7 +6,7 @@ import {FontAwesomeIcon, FontAwesomeIconProps} from "@fortawesome/react-fontawes
 import {theme} from "../services/theme"
 
 export interface IconProps extends FontAwesomeIconProps {
-    variant?: "primary" | "info" | "warning" | "error" | "success" | "form"
+    variant?: "inherit" | "primary" | "info" | "warning" | "error" | "success" | "form"
 }
 
 const ColorMap = {
@@ -16,8 +16,9 @@ const ColorMap = {
     error: theme.palette.errorColor,
     success: theme.palette.green?.main,
     form: theme.palette.customGrey?.dark,
+    inherit: undefined,
 }
 
 export const Icon: React.FC<IconProps> = ({variant, ...props}) => (
-    <FontAwesomeIcon color={ColorMap[variant || "primary"]} {...props} />
+    <FontAwesomeIcon color={ColorMap[variant || "inherit"]} {...props} />
 )

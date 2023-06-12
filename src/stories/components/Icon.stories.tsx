@@ -4,20 +4,11 @@
 import React from "react"
 import {Meta, StoryObj} from "@storybook/react"
 import {faExclamationTriangle} from "@fortawesome/free-solid-svg-icons"
-import Box from "@mui/material/Box"
-import {styled} from "@mui/material/styles"
 import {Icon} from "../../components/Icon"
-
-const VerticalBox = styled(Box)`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 32px;
-    padding: 4px;
-`
+import {VerticalBox} from "../../components/VerticalBox"
 
 const IconExample: React.FC = () => (
-    <VerticalBox>
+    <VerticalBox maxWidth="32px">
         <Icon icon={faExclamationTriangle} size="lg" />
         <Icon icon={faExclamationTriangle} variant="info" size="lg" />
         <Icon icon={faExclamationTriangle} variant="warning" size="lg" />

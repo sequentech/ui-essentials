@@ -3,24 +3,12 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import React from "react"
 import {Meta, StoryObj} from "@storybook/react"
-import {IconButton as MuiIconButton} from "@mui/material"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faTimesCircle} from "@fortawesome/free-solid-svg-icons"
-import Box from "@mui/material/Box"
-import {styled} from "@mui/material/styles"
-import {theme} from "../../services/theme"
 import {IconButton} from "../../components/IconButton"
-
-const VerticalBox = styled(Box)`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 32px;
-    padding: 4px;
-`
+import {VerticalBox} from "../../components/VerticalBox"
 
 const IconButtonExample: React.FC = () => (
-    <VerticalBox>
+    <VerticalBox maxWidth="32px">
         <IconButton icon={faTimesCircle} />
         <IconButton icon={faTimesCircle} variant="info" />
         <IconButton icon={faTimesCircle} variant="warning" />

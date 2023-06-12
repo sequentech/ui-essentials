@@ -24,6 +24,10 @@ declare module "@mui/material/Paper" {
         dashed: true
         responsive: true
         fixed: true
+        error: true
+        success: true
+        warning: true
+        info: true
     }
 }
 
@@ -409,6 +413,34 @@ export const themeOptions: ThemeOptions = {
                         maxWidth: "100%",
                         position: "relative",
                         borderRadius: "unset",
+                    },
+                },
+                {
+                    props: {variant: "error"},
+                    style: {
+                        backgroundColor: palette.red.light,
+                        color: palette.red.main,
+                    },
+                },
+                {
+                    props: {variant: "success"},
+                    style: {
+                        backgroundColor: palette.green.light,
+                        color: palette.green.main,
+                    },
+                },
+                {
+                    props: {variant: "warning"},
+                    style: {
+                        backgroundColor: palette.yellow.light,
+                        color: palette.yellow.main,
+                    },
+                },
+                {
+                    props: {variant: "info"},
+                    style: {
+                        backgroundColor: palette.blue.light,
+                        color: palette.blue.main,
                     },
                 },
             ],

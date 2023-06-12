@@ -7,26 +7,18 @@ import MaterialDialog from "@mui/material/Dialog"
 import {Backdrop, Box, Button} from "@mui/material"
 import DialogContent from "@mui/material/DialogContent"
 import DialogActions from "@mui/material/DialogActions"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {
     faTimesCircle,
     faExclamationCircle,
     faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons"
 import styledEmotion from "@emotion/styled"
-import {styled} from "@mui/material/styles"
 import {Icon} from "./Icon"
 import {IconButton} from "./IconButton"
 
 const StyledBackdrop = styledEmotion(Backdrop)`
     opacity: 0.5 !important;
 `
-
-const BlueIcon = styled(FontAwesomeIcon)`
-    color: ${({theme}) => theme.palette.brandColor};
-`
-
-const CloseIcon = styled(FontAwesomeIcon)``
 
 export interface DialogProps extends PropsWithChildren {
     handleClose: (value: boolean) => void
@@ -56,8 +48,8 @@ export const Dialog: React.FC<DialogProps> = ({
     return (
         <MaterialDialog onClose={closeDialog} open={open} slots={{backdrop: StyledBackdrop}}>
             <DialogTitle>
-                <Icon variant={infoVariant} icon={faIcon} />
-                <Box component="span" flexGrow={2} pt="3px">
+                <Icon variant={infoVariant} icon={faIcon} fontSize="24px" />
+                <Box component="span" flexGrow={2} pt="3px" fontWeight="bold">
                     {title}
                 </Box>
                 <IconButton icon={faTimesCircle} variant="primary" onClick={closeDialog} />

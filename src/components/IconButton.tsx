@@ -7,7 +7,7 @@ import {theme} from "../services/theme"
 import {IconButton as MuiIconButton} from "@mui/material"
 
 export interface IconButtonProps extends FontAwesomeIconProps {
-    variant?: "primary" | "info" | "warning" | "error" | "success"
+    variant?: "inherit" | "primary" | "info" | "warning" | "error" | "success"
 }
 
 const ColorMap = {
@@ -16,10 +16,11 @@ const ColorMap = {
     warning: theme.palette.yellow?.main,
     error: theme.palette.red?.main,
     success: theme.palette.green?.main,
+    inherit: "inherit",
 }
 
 export const IconButton: React.FC<IconButtonProps> = ({variant, ...props}) => (
-    <MuiIconButton aria-label="close" sx={{color: ColorMap[variant || "primary"]}}>
+    <MuiIconButton aria-label="close" sx={{color: ColorMap[variant || "inherit"]}}>
         <FontAwesomeIcon {...props} />
     </MuiIconButton>
 )

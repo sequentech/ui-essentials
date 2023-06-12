@@ -1,31 +1,37 @@
 // SPDX-FileCopyrightText: 2023 Félix Robles <felix@sequentech.io>
 //
 // SPDX-License-Identifier: AGPL-3.0-only
-import React from "react"
+import React, {PropsWithChildren} from "react"
 import {styled} from "@mui/material/styles"
+import Paper from "@mui/material/Paper"
 import Box from "@mui/material/Box"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faWarning} from "@fortawesome/free-solid-svg-icons"
+import {faWarning, faTimes} from "@fortawesome/free-solid-svg-icons"
+import {IconButton} from "./IconButton"
+import {Icon} from "./Icon"
 
-const WarnContainer = styled(Box)`
-    background-color: #fff7d9;
+const WarnContainer = styled(Paper)`
     padding: 17px;
     display: flex;
     flex-direction: row;
     gap: 8px;
     border-radius: 4px;
     line-height: 19px;
-    color: #837032;
     align-items: center;
 `
 
 interface WarnBoxProps {
-    message: string
+    onClose?: () => void
+    variant?: "error" | "success" | "warning" | "info"
 }
 
-export const WarnBox: React.FC<WarnBoxProps> = ({message}) => (
-    <WarnContainer>
-        <FontAwesomeIcon icon={faWarning} size="sm" />
-        <Box>{message}</Box>
+export const WarnBox: React.FC<PropsWithChildren<WarnBoxProps>> = ({
+    onClose,
+    variant,
+    children,
+}) => (
+    <WarnContainer variant={variant}>
+        <Icon icon={faWarning} size="lg" />
+        <Box flexGrow={2}>{children}</Box>
+        {onClose ? <IconButton icon={faTimes} onClick={onClose} /> : undefined}
     </WarnContainer>
 )

@@ -8,14 +8,7 @@ import {styled} from "@mui/material/styles"
 import Box from "@mui/material/Box"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faPrint} from "@fortawesome/free-solid-svg-icons"
-
-const VerticalBox = styled(Box)`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 210px;
-    padding: 4px;
-`
+import {VerticalBox} from "../../components/VerticalBox"
 
 export default {
     title: "material/Button",
@@ -29,7 +22,7 @@ export default {
 } as ComponentMeta<typeof Button>
 
 const Template: ComponentStory<typeof Button> = (args) => (
-    <VerticalBox>
+    <VerticalBox maxWidth="210px">
         <Button className="normal" {...args}>
             <FontAwesomeIcon icon={faPrint} size="sm" />
             <span>Label</span>
