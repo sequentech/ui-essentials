@@ -1,6 +1,5 @@
 import React from "react"
 export {default as useTemplate} from "./useTemplate"
-export {MyComponent} from "./MyComponent"
 export {theme} from "./services/theme"
 export * as i18n from "./services/i18n"
 export {DropFile} from "./components/DropFile"

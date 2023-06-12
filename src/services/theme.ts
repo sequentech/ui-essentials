@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2022 Félix Robles <felix@sequentech.io>
 //
 // SPDX-License-Identifier: AGPL-3.0-only
-import {ThemeOptions, createTheme} from "@mui/material"
+import {SimplePaletteColorOptions, ThemeOptions, createTheme} from "@mui/material"
 import {LinkProps} from "@mui/material/Link"
 import {LinkBehavior} from "../components/LinkBehavior"
 import {grey} from "@mui/material/colors"
@@ -45,24 +45,17 @@ declare module "@mui/material/Button" {
 }
 
 declare module "@mui/material/styles" {
-    export interface CustomColor {
-        light: string
-        dark: string
-    }
-    export interface CustomColorLighter extends CustomColor {
-        lighter: string
-    }
     export interface PaletteOptions {
         lightBackground: string
         brandColor: string
         brandSuccess: string
         errorColor: string
-        red: CustomColor
-        green: CustomColor
-        customGreen: CustomColor
-        yellow: CustomColor
-        blue: CustomColor
-        customGrey: CustomColorLighter
+        red: SimplePaletteColorOptions
+        green: SimplePaletteColorOptions
+        customGreen: SimplePaletteColorOptions
+        yellow: SimplePaletteColorOptions
+        blue: SimplePaletteColorOptions
+        customGrey: SimplePaletteColorOptions
         white: string
         black: string
     }
@@ -76,27 +69,32 @@ const palette = {
     errorColor: "#EF4444",
     red: {
         light: "#FECACA",
+        main: "#991B1B",
         dark: "#991B1B",
     },
     green: {
         light: "#ECFDF5",
+        main: "#064E3B",
         dark: "#064E3B",
     },
     customGreen: {
         light: "#CFF0DC",
+        main: "#0EB048",
         dark: "#0EB048",
     },
     yellow: {
         light: "#FFF7D9",
+        main: "#957400",
         dark: "#957400",
     },
     blue: {
         light: "#CCE5FF",
+        main: "#292F99",
         dark: "#292F99",
     },
     customGrey: {
-        lighter: "#E7EAEE",
-        light: "#757575",
+        light: "#E7EAEE",
+        main: "#757575",
         dark: "#191D23",
     },
     white: "white",
@@ -269,23 +267,23 @@ export const themeOptions: ThemeOptions = {
                 {
                     props: {variant: "cancel"},
                     style: {
-                        "backgroundColor": palette.customGrey.lighter,
-                        "border": `1px solid ${palette.customGrey.lighter}`,
+                        "backgroundColor": palette.customGrey.light,
+                        "border": `1px solid ${palette.customGrey.light}`,
                         "color": palette.black,
                         "&:hover": {
-                            backgroundColor: palette.customGrey.lighter,
-                            border: `1px solid ${palette.customGrey.lighter}`,
+                            backgroundColor: palette.customGrey.light,
+                            border: `1px solid ${palette.customGrey.light}`,
                             color: palette.black,
                             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                         },
                         "&:active": {
                             backgroundColor: `${palette.black} !important`,
                             border: `1px solid ${palette.black}`,
-                            color: `${palette.customGrey.lighter} !important`,
+                            color: `${palette.customGrey.light} !important`,
                         },
                         "&:focus": {
                             border: `2px solid ${palette.black}`,
-                            backgroundColor: palette.customGrey.lighter,
+                            backgroundColor: palette.customGrey.light,
                             color: palette.black,
                         },
                         "&.Mui-disabled": {
@@ -473,7 +471,7 @@ export const themeOptions: ThemeOptions = {
                         filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))",
                     },
                     "&:active": {
-                        color: palette.customGrey.light,
+                        color: palette.customGrey.main,
                         border: `2px solid ${palette.black}`,
                         backgroundColor: palette.white,
                     },

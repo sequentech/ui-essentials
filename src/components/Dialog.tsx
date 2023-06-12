@@ -67,7 +67,7 @@ export const Dialog: React.FC<DialogProps> = ({
                 <Box component="span" flexGrow={2} pt="3px">
                     {title}
                 </Box>
-                <IconButton aria-label="close">
+                <IconButton aria-label="close" color="primary">
                     <CloseIcon icon={faTimesCircle} onClick={closeDialog} />
                 </IconButton>
             </DialogTitle>
