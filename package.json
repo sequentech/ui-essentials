@@ -58,6 +58,7 @@
     "@typescript-eslint/parser": "^5.32.0",
     "babel-loader": "9.1.2",
     "clean-webpack-plugin": "4.0.0",
+    "chromatic": "6.18.2",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "6.15.0",
     "eslint-config-react-app": "^7.0.1",
