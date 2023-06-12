@@ -9,12 +9,9 @@ import {PageLimit} from "../components/PageLimit"
 import {theme} from "../services/theme"
 import LogoImg from "../../public/Sequent_logo.svg"
 import styled from "@emotion/styled"
-import Button from "@mui/material/Button"
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons"
 import {Box} from "@mui/material"
-import {useTranslation} from "react-i18next"
 import {Version} from "./Version"
+import {LogoutButton} from "./LogoutButton"
 
 const HeaderWrapper = styled(PageBanner)`
     background-color: ${theme.palette.lightBackground};
@@ -30,23 +27,6 @@ const StyledLink = styled.a`
     max-height: 100%;
     max-width: 50%;
 `
-
-export interface LogoutButtonprops {
-    logoutFn?: () => void
-}
-
-export const LogoutButton: React.FC<HeaderProps> = ({logoutFn}) => {
-    const {t} = useTranslation()
-
-    return (
-        <Button variant="actionbar">
-            <FontAwesomeIcon icon={faArrowRightFromBracket} size="lg" />
-            <Box component="span" sx={{display: {xs: "none", md: "block"}}}>
-                {t("logout")}
-            </Box>
-        </Button>
-    )
-}
 
 export interface HeaderProps {
     logoutFn?: () => void

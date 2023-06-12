@@ -6,7 +6,6 @@ import {TranslationType} from "./en"
 const spanishTranslation: TranslationType = {
     translations: {
         language: "Español",
-        logout: "cerrar sesión",
         welcome: "Let's start: Import auditable ballot..",
         homeScreen: {
             title: "Verificador de Voto Sequent",
@@ -69,6 +68,16 @@ const spanishTranslation: TranslationType = {
         },
         version: {
             header: "Versión:",
+        },
+        logout: {
+            buttonText: "cerrar sesión",
+            modal: {
+                title: "¿Estás seguro de que quieres cerrar sesión?",
+                content:
+                    "Está a punto de cerrar esta aplicación. Esta acción no se puede deshacer.",
+                ok: "OK",
+                close: "Cerrar",
+            },
         },
         stories: {
             openDialog: "Abrir Diálogo",

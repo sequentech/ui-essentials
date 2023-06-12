@@ -14,17 +14,16 @@ const VerticalBox = styled(Box)`
     gap: 20px;
     max-width: 32px;
     padding: 4px;
-    font-size: 24px;
 `
 
 const IconExample: React.FC = () => (
     <VerticalBox>
-        <Icon icon={faExclamationTriangle} />
-        <Icon icon={faExclamationTriangle} variant="info" />
-        <Icon icon={faExclamationTriangle} variant="warning" />
-        <Icon icon={faExclamationTriangle} variant="error" />
-        <Icon icon={faExclamationTriangle} variant="success" />
-        <Icon icon={faExclamationTriangle} variant="form" />
+        <Icon icon={faExclamationTriangle} size="lg" />
+        <Icon icon={faExclamationTriangle} variant="info" size="lg" />
+        <Icon icon={faExclamationTriangle} variant="warning" size="lg" />
+        <Icon icon={faExclamationTriangle} variant="error" size="lg" />
+        <Icon icon={faExclamationTriangle} variant="success" size="lg" />
+        <Icon icon={faExclamationTriangle} variant="form" size="lg" />
     </VerticalBox>
 )
 

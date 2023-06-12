@@ -63,7 +63,7 @@ declare module "@mui/material/styles" {
 }
 
 const palette = {
-    lightBackground: "#F7F9FE", // #F7F9FE
+    lightBackground: "#F7F9FE",
     brandColor: "#0F054C",
     brandSuccess: "#43E3A1",
     errorColor: "#EF4444",

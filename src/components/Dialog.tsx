@@ -8,10 +8,15 @@ import {Backdrop, Box, Button} from "@mui/material"
 import DialogContent from "@mui/material/DialogContent"
 import DialogActions from "@mui/material/DialogActions"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faTimesCircle, faExclamationCircle} from "@fortawesome/free-solid-svg-icons"
+import {
+    faTimesCircle,
+    faExclamationCircle,
+    faExclamationTriangle,
+} from "@fortawesome/free-solid-svg-icons"
 import styledEmotion from "@emotion/styled"
 import {styled} from "@mui/material/styles"
-import IconButton from "@mui/material/IconButton"
+import {Icon} from "./Icon"
+import {IconButton} from "./IconButton"
 
 const StyledBackdrop = styledEmotion(Backdrop)`
     opacity: 0.5 !important;
@@ -41,26 +46,27 @@ export const Dialog: React.FC<DialogProps> = ({
     ok,
     variant,
 }) => {
-    const okVariant = "warning" === variant ? "solidWarning" : variant
+    const okVariant = "primary"
+    const faIcon = "info" === variant ? faExclamationCircle : faExclamationTriangle
+    const infoVariant = "action" === variant ? "error" : variant
+    const cancelVariant = "info" === variant ? "cancel" : "solidWarning"
     const closeDialog = () => handleClose(false)
     const clickOk = () => handleClose(true)
 
     return (
         <MaterialDialog onClose={closeDialog} open={open} slots={{backdrop: StyledBackdrop}}>
             <DialogTitle>
-                <BlueIcon icon={faExclamationCircle} />
+                <Icon variant={infoVariant} icon={faIcon} />
                 <Box component="span" flexGrow={2} pt="3px">
                     {title}
                 </Box>
-                <IconButton aria-label="close" color="primary">
-                    <CloseIcon icon={faTimesCircle} onClick={closeDialog} />
-                </IconButton>
+                <IconButton icon={faTimesCircle} variant="primary" onClick={closeDialog} />
             </DialogTitle>
             <DialogContent>{children}</DialogContent>
             <DialogActions>
                 {cancel ? (
                     <Button
-                        variant="cancel"
+                        variant={cancelVariant}
                         onClick={closeDialog}
                         sx={{minWidth: "unset", flexGrow: 2}}
                     >

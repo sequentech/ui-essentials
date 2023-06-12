@@ -3,12 +3,17 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import React, {useState} from "react"
 import {Meta, StoryObj} from "@storybook/react"
-import {Dialog} from "../../components/Dialog"
+import {Dialog, DialogProps} from "../../components/Dialog"
 import {INITIAL_VIEWPORTS} from "@storybook/addon-viewport"
 import {Button} from "@mui/material"
 import {useTranslation} from "react-i18next"
 
-const DialogExample: React.FC = () => {
+interface DialogExampleProps {
+    variant?: DialogProps["variant"]
+    close?: boolean
+}
+
+const DialogExample: React.FC<DialogExampleProps> = ({variant, close}) => {
     const {t} = useTranslation()
     const [open, setOpen] = useState(true)
 
@@ -20,7 +25,8 @@ const DialogExample: React.FC = () => {
                 open={open}
                 title={t("ballotSelectionsScreen.statusModal.title")}
                 ok={t("ballotSelectionsScreen.statusModal.ok")}
-                variant="info"
+                cancel={close ? t("logout.modal.close") : undefined}
+                variant={variant}
             >
                 <p>{t("ballotSelectionsScreen.statusModal.content")}</p>
             </Dialog>
@@ -46,9 +52,11 @@ export default meta
 
 type Story = StoryObj<typeof DialogExample>
 
-export const Primary: Story = {
+export const Info: Story = {
     // More on args: https://storybook.js.org/docs/react/writing-stories/args
-    args: {},
+    args: {
+        variant: "info",
+    },
     parameters: {
         viewport: {
             disable: true,
@@ -56,9 +64,62 @@ export const Primary: Story = {
     },
 }
 
-export const PrimaryMobile: Story = {
+export const InfoMobile: Story = {
     // More on args: https://storybook.js.org/docs/react/writing-stories/args
-    args: {},
+    args: {
+        variant: "info",
+    },
+    parameters: {
+        viewport: {
+            defaultViewport: "iphone6",
+        },
+    },
+}
+
+export const Warning: Story = {
+    // More on args: https://storybook.js.org/docs/react/writing-stories/args
+    args: {
+        variant: "warning",
+        close: true,
+    },
+    parameters: {
+        viewport: {
+            disable: true,
+        },
+    },
+}
+
+export const WarningMobile: Story = {
+    // More on args: https://storybook.js.org/docs/react/writing-stories/args
+    args: {
+        variant: "warning",
+        close: true,
+    },
+    parameters: {
+        viewport: {
+            defaultViewport: "iphone6",
+        },
+    },
+}
+export const Action: Story = {
+    // More on args: https://storybook.js.org/docs/react/writing-stories/args
+    args: {
+        variant: "action",
+        close: true,
+    },
+    parameters: {
+        viewport: {
+            disable: true,
+        },
+    },
+}
+
+export const ActionMobile: Story = {
+    // More on args: https://storybook.js.org/docs/react/writing-stories/args
+    args: {
+        variant: "action",
+        close: true,
+    },
     parameters: {
         viewport: {
             defaultViewport: "iphone6",

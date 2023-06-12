@@ -4,7 +4,6 @@
 const englishTranslation = {
     translations: {
         language: "English",
-        logout: "logout",
         welcome: "Hello <br/> <strong>World</strong>",
         homeScreen: {
             title: "Sequent Ballot Verifier",
@@ -66,6 +65,15 @@ const englishTranslation = {
         },
         version: {
             header: "Version:",
+        },
+        logout: {
+            buttonText: "logout",
+            modal: {
+                title: "Are you sure you want to logout?",
+                content: "You are about to close this application. This action can not be undone. ",
+                ok: "OK",
+                close: "Close",
+            },
         },
         stories: {
             openDialog: "Open Dialog",

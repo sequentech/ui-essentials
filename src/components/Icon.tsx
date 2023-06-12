@@ -11,7 +11,7 @@ export interface IconProps extends FontAwesomeIconProps {
 
 const ColorMap = {
     primary: theme.palette.black,
-    info: theme.palette.blue?.main,
+    info: theme.palette.brandColor,
     warning: theme.palette.yellow?.main,
     error: theme.palette.errorColor,
     success: theme.palette.green?.main,
