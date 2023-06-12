@@ -4,8 +4,13 @@
   "license": "MIT",
   "version": "0.1.0",
   "private": true,
-  "author": "Findeton",
-  "repository": "https://github.com/sequentech/ui-essentials",
+  "author": {
+    "name": "Findeton"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sequentech/ui-essentials.git"
+  },
   "main": "dist/index.js",
   "dependencies": {
     "react": "^18.1.0",
@@ -89,7 +94,8 @@
     "storybook": "storybook dev -p 6006 -s public",
     "build-storybook": "storybook build -s public",
     "test-storybook": "storybook test",
-    "dev": "tsc --watch"
+    "dev": "tsc --watch",
+    "chromatic": "npx chromatic --project-token=%CHROMATIC_PROJECT_TOKEN%"
   },
   "eslintConfig": {
     "extends": [
@@ -107,5 +113,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/sequentech/ui-essentials/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/sequentech/ui-essentials#readme",
+  "_id": "ui-essentials@0.1.0"
 }
