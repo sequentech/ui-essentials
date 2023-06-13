@@ -28,6 +28,10 @@ const StyledLink = styled.a`
     max-width: 50%;
 `
 
+const StyledImage = styled(Image)`
+    max-height: 100%;
+`
+
 export interface HeaderProps {
     logoutFn?: () => void
 }
@@ -37,7 +41,7 @@ export const Header: React.FC<HeaderProps> = ({logoutFn}) => (
         <PageLimit maxWidth="md" sx={{height: {xs: "37px", md: "47px"}}}>
             <PageBanner direction="row" sx={{height: "100%"}}>
                 <StyledLink href="//sequentech.io/" target="_blank">
-                    <Image src={LogoImg} duration={100} sx={{maxHeight: "100%"}} />
+                    <StyledImage src={LogoImg} duration={100} />
                 </StyledLink>
                 <Box display="flex" alignItems="center" sx={{gap: {xs: "11px", lg: "31px"}}}>
                     <Version version={{main: "7.1.0"}} />
