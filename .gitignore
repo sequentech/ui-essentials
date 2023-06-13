@@ -42,3 +42,6 @@ Cargo.lock
 
 /__pycache__/
 result
+
+# webpack builds
+src/build-storybook.log

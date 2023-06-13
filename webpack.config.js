@@ -24,7 +24,7 @@ module.exports = function (env, argv) {
                 },
                 {
                     type: "asset",
-                    test: /\.(png|jpe?g|gif|ico)$/i,
+                    test: /\.(png|jpe?g|gif|ico|svg)$/i,
                 },
             ],
         },
