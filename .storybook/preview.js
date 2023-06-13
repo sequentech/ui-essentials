@@ -6,7 +6,7 @@ import {ThemeProvider} from "@mui/material"
 import {INITIAL_VIEWPORTS} from "@storybook/addon-viewport"
 import React, {Suspense, useEffect} from "react"
 import {I18nextProvider} from "react-i18next"
-import {LanguageSetter} from "../src/components/LanguageSetter"
+import LanguageSetter from "../src/components/LanguageSetter/LanguageSetter"
 import i18n from "../src/services/i18n"
 
 export const parameters = {

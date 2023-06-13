@@ -3,15 +3,15 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import React from "react"
 import Image from "mui-image"
-import {LanguageMenu} from "../LanguageMenu"
-import {PageBanner} from "../PageBanner"
-import {PageLimit} from "../PageLimit"
+import LanguageMenu from "../LanguageMenu/LanguageMenu"
+import PageBanner from "../PageBanner/PageBanner"
+import PageLimit from "../PageLimit/PageLimit"
 import {theme} from "../../services/theme"
 import LogoImg from "../../../public/Sequent_logo.svg"
 import styled from "@emotion/styled"
 import {Box} from "@mui/material"
-import {Version} from "../Version"
-import {LogoutButton} from "../LogoutButton"
+import Version from "../Version/Version"
+import LogoutButton from "../LogoutButton/LogoutButton"
 
 const HeaderWrapper = styled(PageBanner)`
     background-color: ${theme.palette.lightBackground};

@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import {SimplePaletteColorOptions, ThemeOptions, createTheme} from "@mui/material"
 import {LinkProps} from "@mui/material/Link"
-import {LinkBehavior} from "../components/LinkBehavior"
+import LinkBehavior from "../components/LinkBehavior/LinkBehavior"
 import {grey} from "@mui/material/colors"
 import {Theme as MUITheme} from "@mui/material"
 
