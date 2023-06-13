@@ -27,7 +27,6 @@
     "sourceType": "module"
   },
   "plugins": [
-    "@typescript-eslint",
     "react",
     "prettier"
   ],

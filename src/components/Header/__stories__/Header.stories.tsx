@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 import React from "react"
 import {Meta, StoryObj} from "@storybook/react"
-import {Header} from "../../components/Header"
+import Header from "../Header"
 import {INITIAL_VIEWPORTS} from "@storybook/addon-viewport"
 
 const meta: Meta<typeof Header> = {

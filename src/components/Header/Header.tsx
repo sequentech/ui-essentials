@@ -1,17 +1,17 @@
-// SPDX-FileCopyrightText: 2022 Félix Robles <felix@sequentech.io>
+// SPDX-FileCopyrightText: 2022-2023 Félix Robles <felix@sequentech.io>
 //
 // SPDX-License-Identifier: AGPL-3.0-only
 import React from "react"
 import Image from "mui-image"
-import {LanguageMenu} from "./LanguageMenu"
-import {PageBanner} from "./PageBanner"
-import {PageLimit} from "../components/PageLimit"
-import {theme} from "../services/theme"
-import LogoImg from "../../public/Sequent_logo.svg"
+import {LanguageMenu} from "../LanguageMenu"
+import {PageBanner} from "../PageBanner"
+import {PageLimit} from "../PageLimit"
+import {theme} from "../../services/theme"
+import LogoImg from "../../../public/Sequent_logo.svg"
 import styled from "@emotion/styled"
 import {Box} from "@mui/material"
-import {Version} from "./Version"
-import {LogoutButton} from "./LogoutButton"
+import {Version} from "../Version"
+import {LogoutButton} from "../LogoutButton"
 
 const HeaderWrapper = styled(PageBanner)`
     background-color: ${theme.palette.lightBackground};
@@ -36,7 +36,7 @@ export interface HeaderProps {
     logoutFn?: () => void
 }
 
-export const Header: React.FC<HeaderProps> = ({logoutFn}) => (
+const Header: React.FC<HeaderProps> = ({logoutFn}) => (
     <HeaderWrapper className="header-class" sx={{backgroundColor: theme.palette.lightBackground}}>
         <PageLimit maxWidth="md" sx={{height: {xs: "37px", md: "47px"}}}>
             <PageBanner direction="row" sx={{height: "100%"}}>
@@ -52,3 +52,5 @@ export const Header: React.FC<HeaderProps> = ({logoutFn}) => (
         </PageLimit>
     </HeaderWrapper>
 )
+
+export default Header
