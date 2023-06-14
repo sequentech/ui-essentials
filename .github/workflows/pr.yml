@@ -29,6 +29,5 @@ jobs:
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: |
-            Hello worldddd ! :wave:
+          message: steps.myval.outputs.text
           pr_number: steps.PR.outputs.number
