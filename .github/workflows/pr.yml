@@ -23,7 +23,7 @@ jobs:
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: ${{ steps.myval.outputs.text }}
+          message: steps.myval.outputs.text
       - uses: 8BitJonny/gh-get-current-pr@2.2.0
         id: PR
       - name: Comment PR
