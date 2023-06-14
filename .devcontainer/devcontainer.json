@@ -15,8 +15,8 @@
     "updateContentCommand": "nix develop --command bash -c 'yarn && echo Environment Built' || true",
   
 	// Add the IDs of extensions you want installed when the container is created.
-    "customizations": {
-        "vscode": {
+    //"customizations": {
+    //    "vscode": {
     	    "extensions": [
 				// run commands on save
 				// https://marketplace.visualstudio.com/items?itemName=fsevenm.run-it-on
@@ -43,6 +43,6 @@
 				// Extension for MDX files
 				"unifiedjs.vscode-mdx"
 			]
-		}
-	}
+	//	}
+	//}
   }
