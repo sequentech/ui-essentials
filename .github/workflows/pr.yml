@@ -17,19 +17,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.2
-      - name: Echo
-        id: myval
-        run: echo "SELECTED_COLOR=| Results |  |\\n| --- | --- |\n| Build Results | 2 |\\n| Storybook Preview | 3 |\\n| Component Count | 4 |" >> "$GITHUB_OUTPUT"
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: |
-            | Results |  |\\n| --- | --- |\n| Build Results | 2 |\\n| Storybook Preview | 3 |\\n| Component Count | 4 |
-          pr_number: steps.PR.outputs.number
-      # - name: Get PR number
-      #   uses: 8BitJonny/gh-get-current-pr@2.2.0
-      #   id: PR
-      # - name: Comment PR with PR id
+          message: "| Results |  |\n| --- | --- |\n| Build Results | 0 |\n| Storybook Preview | 0 |\n| Component Count | 0 |"
+      # - name: Install dependencies
+      #   # 👇 Install dependencies with the same package manager used in the project (replace it as needed), e.g. yarn, npm, pnpm
+      #   run: yarn
+      #   # 👇 Adds Chromatic as a step in the workflow
+      # - name: Publish to Chromatic
+      #   id: chromatic
+      #   uses: chromaui/action@v1
+      #   # Chromatic GitHub Action options
+      #   with:
+      #     # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+      #     projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      # - name: Comment PR
       #   uses: thollander/actions-comment-pull-request@v2
       #   with:
-      #     message: ${{ steps.myval.outputs.SELECTED_COLOR }}
+      #     message: "| Results |  |\n| --- | --- |\n| Build Results | ${{steps.chromatic.outputs.buildUrl}} |\n| Storybook Preview | ${{steps.chromatic.outputs.storybookUrl}} |\n| Component Count | ${{steps.chromatic.outputs.componentCount}} |"
+      #     pr_number: steps.PR.outputs.number
