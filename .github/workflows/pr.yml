@@ -2,37 +2,25 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-only
 
-name: CI
+name: PR
 
-on:
-  pull_request:
+on: [pull_request]
 
 permissions:
   contents: write
   issues: write
   pull-requests: write
 jobs:
-  test-comment:
-    # Operating System
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3.0.2
-      - name: Comment PR
-        uses: thollander/actions-comment-pull-request@v2
-        with:
-          message: |
-            Hello world ! :wave:
-          pr_number: 1
-
   test-comment2:
     # Operating System
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.2
+      - name: Checkout
+        id: myval
+        run: echo 'hi you'
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: |
-            Hello world 2! :wave:
+          message: _({{ myval.outputs.text }})_
