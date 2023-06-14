@@ -8,6 +8,10 @@ name: CI
 on:
   push:
 
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
 jobs:
   check:
     name: Code analysis
