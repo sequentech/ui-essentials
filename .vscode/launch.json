@@ -5,21 +5,9 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "lldb",
+            "type": "node",
             "request": "launch",
             "name": "Debug unit tests in library 'ui-essentials'",
-            "cargo": {
-                "args": [
-                    "test",
-                    //"--no-run",
-                    "--lib",
-                    "--package=new-ballot-verifier-lib"
-                ],
-                "filter": {
-                    "name": "new-ballot-verifier-lib",
-                    "kind": "lib"
-                }
-            },
             "args": [],
             "cwd": "${workspaceFolder}"
         }

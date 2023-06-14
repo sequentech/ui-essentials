@@ -15,27 +15,34 @@
     "updateContentCommand": "nix develop --command bash -c 'yarn && echo Environment Built' || true",
   
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-        // run commands on save
-        // https://marketplace.visualstudio.com/items?itemName=fsevenm.run-it-on
-		"fsevenm.run-it-on",
+    "customizations": {
+        "vscode": {
+    	    "extensions": [
+				// run commands on save
+				// https://marketplace.visualstudio.com/items?itemName=fsevenm.run-it-on
+				"fsevenm.run-it-on",
 
-        // Docker for Visual Studio Code
-		"ms-azuretools.vscode-docker",
+				// Docker for Visual Studio Code
+				"ms-azuretools.vscode-docker",
 
-        // select nix environment
-		"arrterian.nix-env-selector",
+				// select nix environment
+				"arrterian.nix-env-selector",
 
-        // Nix language support
-		"jnoortheen.nix-ide",
+				// Nix language support
+				"jnoortheen.nix-ide",
 
-        // Markdown support and previsualization
-		"yzhang.markdown-all-in-one",
+				// Markdown support and previsualization
+				"yzhang.markdown-all-in-one",
 
-        // Toml support
-		"tamasfe.even-better-toml",
+				// Toml support
+				"tamasfe.even-better-toml",
 
-        // Allows to use Alt+Q (or Option+Q in mac) to rewrap lines
-        "stkb.rewrap"
-	]
+				// Allows to use Alt+Q (or Option+Q in mac) to rewrap lines
+				"stkb.rewrap",
+
+				// Extension for MDX files
+				"unifiedjs.vscode-mdx"
+			]
+		}
+	}
   }
