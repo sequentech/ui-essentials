@@ -18,12 +18,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.0.2
       - name: Echo
-        id: VAL
-        run: echo 'hi you'
+        id: myval
+        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"'
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: ${{ steps.VAL.outputs.text }}
+          message: ${{ steps.myval.outputs.SELECTED_COLOR }}
           pr_number: steps.PR.outputs.number
       - name: Get PR number
         uses: 8BitJonny/gh-get-current-pr@2.2.0
@@ -31,4 +31,4 @@ jobs:
       - name: Comment PR with PR id
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: ${{ steps.VAL.outputs.text }}
+          message: ${{ steps.myval.outputs.SELECTED_COLOR }}
