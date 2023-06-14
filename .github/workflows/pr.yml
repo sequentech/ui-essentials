@@ -29,5 +29,6 @@ jobs:
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: steps.myval.outputs.text
+          message: |
+            _(execution **${{ steps.myval.outputs.text }}** / attempt **${{ myval.outputs.text }}**)_
           pr_number: steps.PR.outputs.number
