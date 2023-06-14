@@ -30,5 +30,5 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            _(execution **${{ steps.myval.outputs.text }}** / attempt **${{ myval.outputs.text }}**)_
+            _(execution **${{ steps.myval.outputs.text }}**)_
           pr_number: steps.PR.outputs.number
