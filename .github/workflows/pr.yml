@@ -17,18 +17,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.2
-      - name: Checkout
-        id: myval
+      - name: Echo
+        id: VAL
         run: echo 'hi you'
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: steps.myval.outputs.text
-      - uses: 8BitJonny/gh-get-current-pr@2.2.0
+          message: ${{ steps.VAL.outputs.text }}
+          pr_number: steps.PR.outputs.number
+      - name: Get PR number
+        uses: 8BitJonny/gh-get-current-pr@2.2.0
         id: PR
-      - name: Comment PR
+      - name: Comment PR with PR id
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: |
-            _(execution **${{ steps.myval.outputs.text }}**)_
-          pr_number: steps.PR.outputs.number
+          message: ${{ steps.VAL.outputs.text }}
