@@ -23,7 +23,8 @@ jobs:
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: ${{ steps.myval.outputs.SELECTED_COLOR }}
+          message: |
+            | Results |  |\n| --- | --- |\n| Build Results | 2 |\n| Storybook Preview | 3 |\n| Component Count | 4 |
           pr_number: steps.PR.outputs.number
       # - name: Get PR number
       #   uses: 8BitJonny/gh-get-current-pr@2.2.0
