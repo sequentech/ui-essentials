@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v3.0.2
       - name: Echo
         id: myval
-        run: echo "SELECTED_COLOR=| Results |  |\n| --- | --- |\n| Build Results | 2 |\n| Storybook Preview | 3 |\n| Component Count | 4 |" >> "$GITHUB_OUTPUT"
+        run: echo "SELECTED_COLOR=| Results |  |\\n| --- | --- |\n| Build Results | 2 |\\n| Storybook Preview | 3 |\\n| Component Count | 4 |" >> "$GITHUB_OUTPUT"
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
