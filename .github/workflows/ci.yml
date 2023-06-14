@@ -318,6 +318,40 @@ jobs:
       with:
         local-testing: stop
 
+  test-comment:
+    # Operating System
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish results to Github Summary
+        id: ghresults
+        run: echo -e "Hello" >> $GITHUB_STEP_SUMMARY
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: process.env.GITHUB_STEP_SUMMARY
+            })
+
+  test-comment2:
+    # Operating System
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publish results to Github Summary
+        id: ghresults
+        run: echo -e "Hello"
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ghresults.outputs.text
+            })
+
   chromatic-deployment:
     # Operating System
     runs-on: ubuntu-latest
@@ -335,5 +369,18 @@ jobs:
         with:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-      - name: Publish results to Github
+      - name: Publish results to Github Summary
+        id: ghresults
         run: echo -e "| Results |  |\n| --- | --- |\n| Build Results | ${{steps.chromatic.outputs.buildUrl}} |\n| Storybook Preview | ${{steps.chromatic.outputs.storybookUrl}} |\n| Component Count | ${{steps.chromatic.outputs.componentCount}} |" >> $GITHUB_STEP_SUMMARY
+      - name: Print results
+        id: ghresults
+        run: echo -e "| Results |  |\n| --- | --- |\n| Build Results | ${{steps.chromatic.outputs.buildUrl}} |\n| Storybook Preview | ${{steps.chromatic.outputs.storybookUrl}} |\n| Component Count | ${{steps.chromatic.outputs.componentCount}} |" >> $GITHUB_STEP_SUMMARY
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ghresults.outputs.text
+            })
