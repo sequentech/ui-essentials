@@ -11,7 +11,7 @@ permissions:
   issues: write
   pull-requests: write
 jobs:
-  test-comment2:
+  chromatic:
     # Operating System
     runs-on: ubuntu-latest
     steps:
@@ -33,7 +33,7 @@ jobs:
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: "| Results |  |\n| --- | --- |\n| Build Results | ${{steps.chromatic.outputs.buildUrl}} |\n| Storybook Preview | ${{steps.chromatic.outputs.storybookUrl}} |\n| Component Count | ${{steps.chromatic.outputs.componentCount}} |\n| Test Count | ${{steps.chromatic.outputs.testCount}} |\n| Error Count | ${{steps.chromatic.outputs.errorCount}} |\n| Interaction Test Failures Count | ${{steps.chromatic.outputs.interactionTestFailuresCount}} |\n(execution **${{ github.run_id }}** / attempt **${{ github.run_attempt }}**)"
+          message: "| Results |  |\n| --- | --- |\n| Build Results | ${{steps.chromatic.outputs.buildUrl}} |\n| Storybook Preview | ${{steps.chromatic.outputs.storybookUrl}} |\n| Components | ${{steps.chromatic.outputs.componentCount}} |\n| Tests | ${{steps.chromatic.outputs.testCount}} |\n| Errors | ${{steps.chromatic.outputs.errorCount}} |\n| Interaction Test Failures | ${{steps.chromatic.outputs.interactionTestFailuresCount}} |\n\n(execution **${{ github.run_id }}** / attempt **${{ github.run_attempt }}**)"
           comment_tag: execution
       - name: Publish results to Github Summary
         run: echo -e "| Results |  |\n| --- | --- |\n| Build Results | ${{steps.chromatic.outputs.buildUrl}} |\n| Storybook Preview | ${{steps.chromatic.outputs.storybookUrl}} |\n| Component Count | ${{steps.chromatic.outputs.componentCount}} |\n| Test Count | ${{steps.chromatic.outputs.testCount}} |\n| Error Count | ${{steps.chromatic.outputs.errorCount}} |\n| Interaction Test Failures Count | ${{steps.chromatic.outputs.interactionTestFailuresCount}} |" >> $GITHUB_STEP_SUMMARY
