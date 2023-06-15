@@ -7,9 +7,19 @@ import styled from "@emotion/styled"
 import {Box, Typography} from "@mui/material"
 import {theme} from "../../../services/theme"
 
-const ColorBox = styled(Box)`
+interface ColoredBoxProps {
+    backgroundColor?: string
+}
+
+const ColorBox = styled(Box)<ColoredBoxProps>`
     height: 40px;
     width: 40px;
+    border: 1px solid
+        ${({theme, backgroundColor}) =>
+            backgroundColor === theme.palette.white
+                ? theme.palette.customGrey.light
+                : theme.palette.white};
+    background-color: ${({backgroundColor}) => backgroundColor || "inherit"};
 `
 
 const DescriptorContainer = styled(Box)`
@@ -36,10 +46,19 @@ const ColoredCell = styled(Box)`
 
 const TH = styled.th`
     width: 20%;
+    height: 40px;
+    font-weight: normal;
+    border-top: 1px solid ${({theme}) => theme.palette.customGrey.light};
 `
 
-const TD = styled.td`
+interface TDProps {
+    isHeader: boolean
+}
+
+const TD = styled.td<TDProps>`
     width: 20%;
+    border-top: ${({theme, isHeader}) =>
+        isHeader ? `1px solid ${theme.palette.customGrey.light}` : "none"};
 `
 
 interface ColorDescriptorProps {
@@ -50,7 +69,7 @@ interface ColorDescriptorProps {
 
 const ColorDescriptor: React.FC<ColorDescriptorProps> = ({title, description, backgroundColor}) => (
     <DescriptorContainer>
-        <ColorBox sx={{backgroundColor: backgroundColor}} />
+        <ColorBox backgroundColor={backgroundColor} />
         <Box sx={{flexGrow: 2}}>
             <Typography mb={0.5}>{title}</Typography>
             <Typography mt={0.5} color={theme.palette.customGrey.main}>
@@ -68,7 +87,7 @@ interface ColorTableCellProps {
 }
 
 const ColorTableCell: React.FC<ColorTableCellProps> = ({value, isHeader, color}) => (
-    <TD>
+    <TD isHeader={isHeader || !value}>
         {isHeader ? (
             value
         ) : (
