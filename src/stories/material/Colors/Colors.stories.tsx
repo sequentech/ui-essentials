@@ -64,15 +64,27 @@ const ColorDescriptor: React.FC<ColorDescriptorProps> = ({title, description, ba
 interface ColorTableCellProps {
     value: string | null
     isHeader: boolean
+    color?: string
 }
 
-const ColorTableCell: React.FC<ColorTableCellProps> = ({value, isHeader}) => (
-    <TD>{isHeader ? value : <ColoredCell sx={{backgroundColor: value}}>{value}</ColoredCell>}</TD>
+const ColorTableCell: React.FC<ColorTableCellProps> = ({value, isHeader, color}) => (
+    <TD>
+        {isHeader ? (
+            value
+        ) : (
+            <ColoredCell sx={{backgroundColor: value, color: color}}>{value}</ColoredCell>
+        )}
+    </TD>
 )
+
+interface ColorsRow {
+    values: Array<string | null>
+    colors?: Array<string | null>
+}
 
 interface ColorsTableProps {
     headers: Array<string | null>
-    rows: Array<Array<string | null>>
+    rows: Array<ColorsRow>
 }
 
 const ColorsTable: React.FC<ColorsTableProps> = ({headers, rows}) => (
@@ -84,8 +96,13 @@ const ColorsTable: React.FC<ColorsTableProps> = ({headers, rows}) => (
         </tr>
         {rows.map((row, rowIdx) => (
             <tr key={rowIdx}>
-                {row.map((cell, cellIdx) => (
-                    <ColorTableCell value={cell} isHeader={0 === cellIdx} key={cellIdx} />
+                {row.values.map((cell, cellIdx) => (
+                    <ColorTableCell
+                        color={row.colors?.[cellIdx] || undefined}
+                        value={cell}
+                        isHeader={0 === cellIdx}
+                        key={cellIdx}
+                    />
                 ))}
             </tr>
         ))}
@@ -177,48 +194,61 @@ export const Content: Story = {
         colorsTable: {
             headers: [null, "Light", "Main", "Dark", "Contrast Text"],
             rows: [
-                [
-                    "red",
-                    theme.palette.red.light || null,
-                    theme.palette.red.main || null,
-                    theme.palette.red.dark || null,
-                    null,
-                ],
-                [
-                    "green",
-                    theme.palette.green.light || null,
-                    theme.palette.green.main || null,
-                    theme.palette.green.dark || null,
-                    null,
-                ],
-                [
-                    "customGreen",
-                    theme.palette.customGreen.light || null,
-                    theme.palette.customGreen.main || null,
-                    theme.palette.customGreen.dark || null,
-                    null,
-                ],
-                [
-                    "yellow",
-                    theme.palette.yellow.light || null,
-                    theme.palette.yellow.main || null,
-                    theme.palette.yellow.dark || null,
-                    null,
-                ],
-                [
-                    "blue",
-                    theme.palette.blue.light || null,
-                    theme.palette.blue.main || null,
-                    theme.palette.blue.dark || null,
-                    null,
-                ],
-                [
-                    "customGrey",
-                    theme.palette.customGrey.light || null,
-                    theme.palette.customGrey.main || null,
-                    theme.palette.customGrey.dark || null,
-                    theme.palette.customGrey.contrastText || null,
-                ],
+                {
+                    values: [
+                        "red",
+                        theme.palette.red.light || null,
+                        theme.palette.red.main || null,
+                        theme.palette.red.dark || null,
+                        null,
+                    ],
+                },
+                {
+                    values: [
+                        "green",
+                        theme.palette.green.light || null,
+                        theme.palette.green.main || null,
+                        theme.palette.green.dark || null,
+                        null,
+                    ],
+                },
+                {
+                    values: [
+                        "customGreen",
+                        theme.palette.customGreen.light || null,
+                        theme.palette.customGreen.main || null,
+                        theme.palette.customGreen.dark || null,
+                        null,
+                    ],
+                },
+                {
+                    values: [
+                        "yellow",
+                        theme.palette.yellow.light || null,
+                        theme.palette.yellow.main || null,
+                        theme.palette.yellow.dark || null,
+                        null,
+                    ],
+                },
+                {
+                    values: [
+                        "blue",
+                        theme.palette.blue.light || null,
+                        theme.palette.blue.main || null,
+                        theme.palette.blue.dark || null,
+                        null,
+                    ],
+                },
+                {
+                    values: [
+                        "customGrey",
+                        theme.palette.customGrey.light || null,
+                        theme.palette.customGrey.main || null,
+                        theme.palette.customGrey.dark || null,
+                        theme.palette.customGrey.contrastText || null,
+                    ],
+                    colors: [null, null, null, null, theme.palette.white],
+                },
             ],
         },
     },
