@@ -33,6 +33,7 @@ jobs:
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          message: "| Results |  |\n| --- | --- |\n| Build Results | ${{steps.chromatic.outputs.buildUrl}} |\n| Storybook Preview | ${{steps.chromatic.outputs.storybookUrl}} |\n| Component Count | ${{steps.chromatic.outputs.componentCount}} |"
+          message: "| Results |  |\n| --- | --- |\n| Build Results | ${{steps.chromatic.outputs.buildUrl}} |\n| Storybook Preview | ${{steps.chromatic.outputs.storybookUrl}} |\n| Component Count | ${{steps.chromatic.outputs.componentCount}} |\n| Test Count | ${{steps.chromatic.outputs.testCount}} |\n| Error Count | ${{steps.chromatic.outputs.errorCount}} |\n| Interaction Test Failures Count | ${{steps.chromatic.outputs.interactionTestFailuresCount}} |\n(execution **${{ github.run_id }}** / attempt **${{ github.run_attempt }}**)"
+          comment_tag: execution
       - name: Publish results to Github Summary
-        run: echo -e "| Results |  |\n| --- | --- |\n| Build Results | ${{steps.chromatic.outputs.buildUrl}} |\n| Storybook Preview | ${{steps.chromatic.outputs.storybookUrl}} |\n| Component Count | ${{steps.chromatic.outputs.componentCount}} |" >> $GITHUB_STEP_SUMMARY
+        run: echo -e "| Results |  |\n| --- | --- |\n| Build Results | ${{steps.chromatic.outputs.buildUrl}} |\n| Storybook Preview | ${{steps.chromatic.outputs.storybookUrl}} |\n| Component Count | ${{steps.chromatic.outputs.componentCount}} |\n| Test Count | ${{steps.chromatic.outputs.testCount}} |\n| Error Count | ${{steps.chromatic.outputs.errorCount}} |\n| Interaction Test Failures Count | ${{steps.chromatic.outputs.interactionTestFailuresCount}} |" >> $GITHUB_STEP_SUMMARY
