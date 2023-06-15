@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2023 Félix Robles <felix@sequentech.io>
 //
 // SPDX-License-Identifier: AGPL-3.0-only
-import React, {useState} from "react"
+import React from "react"
 import {Meta, StoryObj} from "@storybook/react"
 import styled from "@emotion/styled"
 import {Box, Typography} from "@mui/material"
@@ -26,6 +26,14 @@ const ColorsListContainer = styled(Box)`
     border-radius: 8px;
 `
 
+const ColoredCell = styled(Box)`
+    height: 40px;
+    width: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
 interface ColorDescriptorProps {
     title: string
     description: string
@@ -45,16 +53,57 @@ const ColorDescriptor: React.FC<ColorDescriptorProps> = ({title, description, ba
     </DescriptorContainer>
 )
 
-interface ColorsListProps {
-    colors: Array<ColorDescriptorProps>
+interface ColorTableCellProps {
+    value: string | null
+    isHeader: boolean
 }
 
-const ColorsList: React.FC<ColorsListProps> = ({colors}) => (
-    <ColorsListContainer>
-        {colors.map((color, idx) => (
-            <ColorDescriptor {...color} key={idx} />
+const ColorTableCell: React.FC<ColorTableCellProps> = ({value, isHeader}) => (
+    <td>{isHeader ? value : <ColoredCell sx={{backgroundColor: value}}>{value}</ColoredCell>}</td>
+)
+
+interface ColorsTableProps {
+    headers: Array<string | null>
+    rows: Array<Array<string | null>>
+}
+
+const ColorsTable: React.FC<ColorsTableProps> = ({headers, rows}) => (
+    <table>
+        <tr>
+            {headers.map((header, idx) => (
+                <th key={idx}>{header}</th>
+            ))}
+        </tr>
+        {rows.map((row, rowIdx) => (
+            <tr key={rowIdx}>
+                {row.map((cell, cellIdx) => (
+                    <ColorTableCell value={cell} isHeader={0 === cellIdx} key={cellIdx} />
+                ))}
+            </tr>
         ))}
-    </ColorsListContainer>
+    </table>
+)
+
+interface ColorsListProps {
+    colors: Array<ColorDescriptorProps>
+    colorsTable?: ColorsTableProps
+}
+
+const ColorsList: React.FC<ColorsListProps> = ({colors, colorsTable}) => (
+    <>
+        {colors ? (
+            <ColorsListContainer>
+                {colors.map((color, idx) => (
+                    <ColorDescriptor {...color} key={idx} />
+                ))}
+            </ColorsListContainer>
+        ) : null}
+        {colorsTable ? (
+            <ColorsListContainer>
+                <ColorsTable {...colorsTable} />
+            </ColorsListContainer>
+        ) : null}
+    </>
 )
 
 const meta: Meta<typeof ColorsList> = {
@@ -95,6 +144,16 @@ export const Semantic: Story = {
                 title: "error-color",
                 description: "Error color",
             },
+            {
+                backgroundColor: theme.palette.white,
+                title: "white",
+                description: "White",
+            },
+            {
+                backgroundColor: theme.palette.black,
+                title: "black",
+                description: "Black",
+            },
         ],
     },
     parameters: {
@@ -107,113 +166,53 @@ export const Semantic: Story = {
 export const Content: Story = {
     // More on args: https://storybook.js.org/docs/react/writing-stories/args
     args: {
-        colors: [
-            {
-                backgroundColor: theme.palette.red.light,
-                title: "red.light",
-                description: "Light Red",
-            },
-            {
-                backgroundColor: theme.palette.red.main,
-                title: "red.main",
-                description: "Main Red",
-            },
-            {
-                backgroundColor: theme.palette.red.dark,
-                title: "red.dark",
-                description: "Dark Red",
-            },
-            {
-                backgroundColor: theme.palette.green.light,
-                title: "green.light",
-                description: "Light Green",
-            },
-            {
-                backgroundColor: theme.palette.green.main,
-                title: "green.main",
-                description: "Main Green",
-            },
-            {
-                backgroundColor: theme.palette.green.dark,
-                title: "green.dark",
-                description: "Dark Green",
-            },
-            {
-                backgroundColor: theme.palette.customGreen.light,
-                title: "customGreen.light",
-                description: "Light Custom Green",
-            },
-            {
-                backgroundColor: theme.palette.customGreen.main,
-                title: "customGreen.main",
-                description: "Main Custom Green",
-            },
-            {
-                backgroundColor: theme.palette.customGreen.dark,
-                title: "customGreen.dark",
-                description: "Dark Custom Green",
-            },
-            {
-                backgroundColor: theme.palette.yellow.light,
-                title: "yellow.light",
-                description: "Light Yellow",
-            },
-            {
-                backgroundColor: theme.palette.yellow.main,
-                title: "yellow.main",
-                description: "Main Yellow",
-            },
-            {
-                backgroundColor: theme.palette.yellow.dark,
-                title: "yellow.dark",
-                description: "Dark Yellow",
-            },
-            {
-                backgroundColor: theme.palette.blue.light,
-                title: "blue.light",
-                description: "Light Blue",
-            },
-            {
-                backgroundColor: theme.palette.blue.main,
-                title: "blue.main",
-                description: "Main Blue",
-            },
-            {
-                backgroundColor: theme.palette.blue.dark,
-                title: "blue.dark",
-                description: "Dark Blue",
-            },
-            {
-                backgroundColor: theme.palette.customGrey.light,
-                title: "customGrey.light",
-                description: "Light Custom Grey",
-            },
-            {
-                backgroundColor: theme.palette.customGrey.main,
-                title: "customGrey.main",
-                description: "Main Custom Grey",
-            },
-            {
-                backgroundColor: theme.palette.customGrey.dark,
-                title: "customGrey.dark",
-                description: "Dark Custom Grey",
-            },
-            {
-                backgroundColor: theme.palette.customGrey.contrastText,
-                title: "customGrey.contrastText",
-                description: "Contrast Text Custom Grey",
-            },
-            {
-                backgroundColor: theme.palette.white,
-                title: "white",
-                description: "White",
-            },
-            {
-                backgroundColor: theme.palette.black,
-                title: "black",
-                description: "Black",
-            },
-        ],
+        colorsTable: {
+            headers: [null, "Light", "Main", "Dark", "Contrast Text"],
+            rows: [
+                [
+                    "red",
+                    theme.palette.red.light || null,
+                    theme.palette.red.main || null,
+                    theme.palette.red.dark || null,
+                    null,
+                ],
+                [
+                    "green",
+                    theme.palette.green.light || null,
+                    theme.palette.green.main || null,
+                    theme.palette.green.dark || null,
+                    null,
+                ],
+                [
+                    "customGreen",
+                    theme.palette.customGreen.light || null,
+                    theme.palette.customGreen.main || null,
+                    theme.palette.customGreen.dark || null,
+                    null,
+                ],
+                [
+                    "yellow",
+                    theme.palette.yellow.light || null,
+                    theme.palette.yellow.main || null,
+                    theme.palette.yellow.dark || null,
+                    null,
+                ],
+                [
+                    "blue",
+                    theme.palette.blue.light || null,
+                    theme.palette.blue.main || null,
+                    theme.palette.blue.dark || null,
+                    null,
+                ],
+                [
+                    "customGrey",
+                    theme.palette.customGrey.light || null,
+                    theme.palette.customGrey.main || null,
+                    theme.palette.customGrey.dark || null,
+                    theme.palette.customGrey.contrastText || null,
+                ],
+            ],
+        },
     },
     parameters: {
         viewport: {
