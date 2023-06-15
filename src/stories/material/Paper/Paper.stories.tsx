@@ -2,31 +2,89 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-only
 import React from "react"
-import {ComponentStory, ComponentMeta} from "@storybook/react"
+import {Meta, StoryObj} from "@storybook/react"
 import Paper from "@mui/material/Paper"
+import {theme} from "../../../services/theme"
 
-export default {
+const PaperType: typeof Paper = ({...props}) => <Paper className="fff" {...props} />
+
+const meta: Meta<typeof Paper> = {
     title: "material/Paper",
-    component: Paper,
+    component: PaperType,
     parameters: {
         backgrounds: {
             default: "light",
         },
     },
     argTypes: {},
-} as ComponentMeta<typeof Paper>
+}
 
-const FixedTemplate: ComponentStory<typeof Paper> = (args) => <Paper variant="fixed">data</Paper>
+export default meta
 
-export const Fixed = FixedTemplate.bind({})
+type Story = StoryObj<typeof Paper>
 
-const ResponsiveTemplate: ComponentStory<typeof Paper> = (args) => (
-    <Paper variant="responsive">
-        <Paper sx={{width: "10rem", height: "10rem", backgroundColor: "blue"}} />
-        <Paper sx={{width: "10rem", height: "10rem", backgroundColor: "blue"}} />
-        <Paper sx={{width: "10rem", height: "10rem", backgroundColor: "blue"}} />
-        <Paper sx={{width: "10rem", height: "10rem", backgroundColor: "blue"}} />
-    </Paper>
-)
+export const Fixed: Story = {
+    args: {
+        variant: "fixed",
+        sx: {
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+        },
+        children: (
+            <>
+                <Paper
+                    sx={{
+                        width: "10rem",
+                        height: "10rem",
+                        backgroundColor: `${theme.palette.customGrey.light} !important`,
+                    }}
+                />
+            </>
+        ),
+    },
+}
 
-export const Responsive = ResponsiveTemplate.bind({})
+export const Responsive: Story = {
+    args: {
+        variant: "responsive",
+        sx: {
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+        },
+        children: (
+            <>
+                <Paper
+                    sx={{
+                        width: "10rem",
+                        height: "10rem",
+                        backgroundColor: `${theme.palette.customGrey.light} !important`,
+                    }}
+                />
+            </>
+        ),
+    },
+}
+
+export const Dashed: Story = {
+    args: {
+        variant: "dashed",
+        sx: {
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+        },
+        children: (
+            <>
+                <Paper
+                    sx={{
+                        width: "10rem",
+                        height: "10rem",
+                        backgroundColor: `${theme.palette.customGrey.light} !important`,
+                    }}
+                />
+            </>
+        ),
+    },
+}

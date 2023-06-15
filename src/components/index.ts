@@ -4,6 +4,7 @@
 
 export * as Header from "./Header/Header"
 export * as Dialog from "./Dialog/Dialog"
+export * as CustomDropFile from "./CustomDropFile/CustomDropFile"
 export * as DropFile from "./DropFile/DropFile"
 export * as Footer from "./Footer/Footer"
 export * as Icon from "./Icon/Icon"

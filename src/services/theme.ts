@@ -391,7 +391,7 @@ export const themeOptions: ThemeOptions = {
                 {
                     props: {variant: "dashed"},
                     style: {
-                        border: `2px dashed ${grey[500]}`,
+                        border: `2px dashed ${palette.brandSuccess}77`,
                         padding: "0 10px",
                     },
                 },
