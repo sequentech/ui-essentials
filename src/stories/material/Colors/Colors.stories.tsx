@@ -34,6 +34,14 @@ const ColoredCell = styled(Box)`
     justify-content: center;
 `
 
+const TH = styled.th`
+    width: 20%;
+`
+
+const TD = styled.td`
+    width: 20%;
+`
+
 interface ColorDescriptorProps {
     title: string
     description: string
@@ -59,7 +67,7 @@ interface ColorTableCellProps {
 }
 
 const ColorTableCell: React.FC<ColorTableCellProps> = ({value, isHeader}) => (
-    <td>{isHeader ? value : <ColoredCell sx={{backgroundColor: value}}>{value}</ColoredCell>}</td>
+    <TD>{isHeader ? value : <ColoredCell sx={{backgroundColor: value}}>{value}</ColoredCell>}</TD>
 )
 
 interface ColorsTableProps {
@@ -71,7 +79,7 @@ const ColorsTable: React.FC<ColorsTableProps> = ({headers, rows}) => (
     <table>
         <tr>
             {headers.map((header, idx) => (
-                <th key={idx}>{header}</th>
+                <TH key={idx}>{header}</TH>
             ))}
         </tr>
         {rows.map((row, rowIdx) => (
