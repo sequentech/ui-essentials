@@ -541,3 +541,5 @@ export const themeOptions: ThemeOptions = {
 }
 
 export const theme = createTheme(themeOptions)
+
+export default theme

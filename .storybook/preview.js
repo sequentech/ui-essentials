@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2022 Félix Robles <felix@sequentech.io>
 //
 // SPDX-License-Identifier: AGPL-3.0-only
-import {theme} from "../src/services/theme"
+import {theme} from "../src/index"
 import {ThemeProvider} from "@mui/material"
 import {INITIAL_VIEWPORTS} from "@storybook/addon-viewport"
 import React, {Suspense, useEffect} from "react"
