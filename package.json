@@ -87,6 +87,7 @@
   },
   "scripts": {
     "build": "webpack --mode=production",
+    "build:dev": "webpack --mode=development",
     "prettify": "prettier --check .",
     "prettify:fix": "prettier --write .",
     "lint": "eslint --ext js,jsx,ts,tsx,md,mdx .",
