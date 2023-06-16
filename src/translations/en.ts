@@ -78,6 +78,11 @@ const englishTranslation = {
         stories: {
             openDialog: "Open Dialog",
         },
+        dragNDrop: {
+            firstLine: "Drag & drop files or",
+            browse: "Browse",
+            format: "Supported format: json",
+        },
     },
 }
 

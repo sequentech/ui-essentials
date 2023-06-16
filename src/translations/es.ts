@@ -82,6 +82,11 @@ const spanishTranslation: TranslationType = {
         stories: {
             openDialog: "Abrir Diálogo",
         },
+        dragNDrop: {
+            firstLine: "Arrastrar y soltar ficheros o",
+            browse: "Cargar fichero",
+            format: "Formatos soportados: json",
+        },
     },
 }
 
