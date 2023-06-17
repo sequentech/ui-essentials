@@ -11,6 +11,20 @@
     "type": "git",
     "url": "git+https://github.com/sequentech/ui-essentials.git"
   },
+  "scripts": {
+    "build": "webpack --mode=production",
+    "build:dev": "webpack --mode=development",
+    "prettify": "prettier --check .",
+    "prettify:fix": "prettier --write .",
+    "lint": "eslint --ext js,jsx,ts,tsx,md,mdx .",
+    "lint:fix": "eslint --fix --ext js,jsx,ts,tsx,md,mdx .",
+    "test": "jest",
+    "storybook": "storybook dev -p 6006 -s public",
+    "build-storybook": "storybook build -s public",
+    "test-storybook": "storybook test",
+    "dev": "tsc --watch",
+    "chromatic": "npx chromatic --project-token=%CHROMATIC_PROJECT_TOKEN%"
+  },
   "main": "dist/index.js",
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -24,11 +38,13 @@
     "i18next-browser-languagedetector": "^6.1.4",
     "lodash": "^4.17.21",
     "mui-image": "^1.0.7",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
     "react-i18next": "^11.18.3",
     "react-router-dom": "^6.11.2",
     "react-scripts": "5.0.1"
+  },
+  "peerDependencies": {
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0"
   },
   "devDependencies": {
     "@babel/cli": "7.12.8",
@@ -84,20 +100,6 @@
     "typescript": "5.0.4",
     "webpack": "5.9.0",
     "webpack-cli": "4.2.0"
-  },
-  "scripts": {
-    "build": "webpack --mode=production",
-    "build:dev": "webpack --mode=development",
-    "prettify": "prettier --check .",
-    "prettify:fix": "prettier --write .",
-    "lint": "eslint --ext js,jsx,ts,tsx,md,mdx .",
-    "lint:fix": "eslint --fix --ext js,jsx,ts,tsx,md,mdx .",
-    "test": "jest",
-    "storybook": "storybook dev -p 6006 -s public",
-    "build-storybook": "storybook build -s public",
-    "test-storybook": "storybook test",
-    "dev": "tsc --watch",
-    "chromatic": "npx chromatic --project-token=%CHROMATIC_PROJECT_TOKEN%"
   },
   "eslintConfig": {
     "extends": [

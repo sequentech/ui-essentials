@@ -2,26 +2,13 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-only
 import React from "react"
-import {ComponentStory, ComponentMeta} from "@storybook/react"
-import Button from "@mui/material/Button"
-import {styled} from "@mui/material/styles"
-import Box from "@mui/material/Box"
+import {Meta, StoryObj} from "@storybook/react"
+import Button, {ButtonProps} from "@mui/material/Button"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faPrint} from "@fortawesome/free-solid-svg-icons"
 import VerticalBox from "../../../components/VerticalBox/VerticalBox"
 
-export default {
-    title: "material/Button",
-    component: Button,
-    parameters: {
-        backgrounds: {
-            default: "white",
-        },
-    },
-    argTypes: {},
-} as ComponentMeta<typeof Button>
-
-const Template: ComponentStory<typeof Button> = (args) => (
+const Template: React.FC<ButtonProps> = (args) => (
     <VerticalBox maxWidth="210px">
         <Button className="normal" {...args}>
             <FontAwesomeIcon icon={faPrint} size="sm" />
@@ -46,83 +33,106 @@ const Template: ComponentStory<typeof Button> = (args) => (
     </VerticalBox>
 )
 
-export const SecondaryButton = Template.bind({})
-SecondaryButton.parameters = {
-    pseudo: {
-        hover: [".hover"],
-        active: [".active"],
-        focus: [".focus"],
+const meta: Meta<typeof Button> = {
+    title: "material/Button",
+    component: Template,
+    parameters: {
+        backgrounds: {
+            default: "white",
+        },
     },
-}
-SecondaryButton.args = {
-    variant: "secondary",
+    argTypes: {},
 }
 
-export const DefaultButton = Template.bind({})
-DefaultButton.parameters = {
-    pseudo: {
-        hover: [".hover"],
-        active: [".active"],
-        focus: [".focus"],
+export default meta
+
+type Story = StoryObj<typeof Button>
+
+export const SecondaryButton: Story = {
+    parameters: {
+        pseudo: {
+            hover: [".hover"],
+            active: [".active"],
+            focus: [".focus"],
+        },
+    },
+    args: {
+        variant: "secondary",
     },
 }
 
-export const ActionButton = Template.bind({})
-ActionButton.parameters = {
-    pseudo: {
-        hover: [".hover"],
-        active: [".active"],
-        focus: [".focus"],
+export const DefaultButton: Story = {
+    parameters: {
+        pseudo: {
+            hover: [".hover"],
+            active: [".active"],
+            focus: [".focus"],
+        },
     },
-}
-ActionButton.args = {
-    variant: "action",
+    args: {},
 }
 
-export const CancelButton = Template.bind({})
-CancelButton.parameters = {
-    pseudo: {
-        hover: [".hover"],
-        active: [".active"],
-        focus: [".focus"],
+export const ActionButton: Story = {
+    parameters: {
+        pseudo: {
+            hover: [".hover"],
+            active: [".active"],
+            focus: [".focus"],
+        },
     },
-}
-CancelButton.args = {
-    variant: "cancel",
+    args: {
+        variant: "action",
+    },
 }
 
-export const WarningButton = Template.bind({})
-WarningButton.parameters = {
-    pseudo: {
-        hover: [".hover"],
-        active: [".active"],
-        focus: [".focus"],
+export const CancelButton: Story = {
+    parameters: {
+        pseudo: {
+            hover: [".hover"],
+            active: [".active"],
+            focus: [".focus"],
+        },
     },
-}
-WarningButton.args = {
-    variant: "warning",
+    args: {
+        variant: "cancel",
+    },
 }
 
-export const SolidWarningButton = Template.bind({})
-SolidWarningButton.parameters = {
-    pseudo: {
-        hover: [".hover"],
-        active: [".active"],
-        focus: [".focus"],
+export const WarningButton: Story = {
+    parameters: {
+        pseudo: {
+            hover: [".hover"],
+            active: [".active"],
+            focus: [".focus"],
+        },
     },
-}
-SolidWarningButton.args = {
-    variant: "solidWarning",
+    args: {
+        variant: "warning",
+    },
 }
 
-export const ActionbarButton = Template.bind({})
-ActionbarButton.parameters = {
-    pseudo: {
-        hover: [".hover"],
-        active: [".active"],
-        focus: [".focus"],
+export const SolidWarningButton: Story = {
+    parameters: {
+        pseudo: {
+            hover: [".hover"],
+            active: [".active"],
+            focus: [".focus"],
+        },
+    },
+    args: {
+        variant: "solidWarning",
     },
 }
-ActionbarButton.args = {
-    variant: "actionbar",
+
+export const ActionbarButton: Story = {
+    parameters: {
+        pseudo: {
+            hover: [".hover"],
+            active: [".active"],
+            focus: [".focus"],
+        },
+    },
+    args: {
+        variant: "actionbar",
+    },
 }
